@@ -1,11 +1,21 @@
 // Core
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { ConnectedRouter as Router } from 'react-router-redux';
 
 // Instruments
+import store, { history } from './store';
 import './theme/reset.css';
 
-// App
-import App from './containers/App';
+// Routes
+import Routes from './Routes';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+render(
+    <Provider store = { store }>
+        <Router history = { history }>
+            <Routes />
+        </Router>
+    </Provider>,
+    document.getElementById('root')
+);

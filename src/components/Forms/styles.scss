@@ -1,0 +1,141 @@
+@import '../../theme/palette';
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    padding: 70px 0 0;
+    background-color: $paletteColor3;
+
+    h1 {
+        font-size: 28px;
+        font-weight: 300;
+    }
+
+    img {
+        width: 160px;
+        height: 160px;
+        margin: 30px 0;
+        border: 4px solid $paletteColor2;
+        border-radius: 2px;
+        background-color: $paletteColor2;
+        cursor: pointer;
+    }
+
+    div {
+        position: relative;
+
+        span {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 150px;
+            width: 370px;
+            padding: 10px;
+            border: 1px solid $paletteColor24;
+            border-radius: 5px;
+            background-color: lighten($paletteColor24, 25%);
+            color: $paletteColor23;
+            text-align: center;
+        }
+    }
+
+    input {
+        width: 230px;
+        height: 30px;
+        margin: 0 auto 12px;
+        padding: 8px 10px;
+        border: 1px solid $paletteColor14;
+        outline: none;
+        color: $paletteColor15;
+        font-size: 17px;
+
+        &:focus::placeholder {
+            color: lighten($paletteColor15, 50%);
+        }
+    }
+
+    button {
+        width: 230px;
+        padding: 0 16px;
+        border-radius: 2px;
+        outline: 0;
+        color: $paletteColor2;
+        line-height: 34px;
+        cursor: pointer;
+    }
+
+    .loginSubmit,
+    .profileSubmit {
+        transition: background-color .2s ease-out, border-color .2s ease-out;
+        border: 1px solid $paletteColor6;
+        background-color: $paletteColor6;
+        font-size: 12px;
+
+        &:hover {
+            border-color: $paletteColor7;
+            background-color: $paletteColor7;
+        }
+    }
+
+    .signupSubmit {
+        border: 1px solid;
+        border-color: $paletteColor18 $paletteColor18 $paletteColor19;
+        background: $gradient1;
+        background-color: $paletteColor22;
+        box-shadow: inset 0 1px 1px $paletteColor20;
+        font-size: 19px;
+
+        &:hover {
+            background: $gradient2;
+        }
+    }
+
+    .error {
+        transition: box-shadow .2s ease-out;
+        box-shadow: 0 0 1px 1px $paletteColor25;
+    }
+
+    .disabled {
+        &Input {
+            background-color: $paletteColor3;
+        }
+
+        &Button {
+            background-color: $paletteColor7;
+        }
+    }
+
+    i {
+        position: relative;
+
+        .cancelUpdate {
+            position: absolute;
+            left: -30px;
+            width: 110px;
+            margin-top: 10px;
+            transition: color .2s ease-out;
+            color: $paletteColor5;
+            font-size: 10px;
+            cursor: pointer;
+
+            &:hover {
+                color: $paletteColor1;
+            }
+        }
+    }
+
+    a {
+        margin-top: 40px;
+        transition: color .2s ease-out;
+        color: $paletteColor23;
+        font-size: 14px;
+        text-decoration: none;
+
+        &:hover {
+            color: $paletteColor12;
+        }
+    }
+}

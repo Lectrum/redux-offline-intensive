@@ -1,20 +1,19 @@
 // Core
 import React from 'react';
+import { object } from 'prop-types';
 
 // Instruments
 import Styles from './styles';
-import PropTypes from 'prop-types';
 
-const Postman = (props, { avatar, firstName }) => (
+const Postman = ({ profile: { avatar, firstName }}) => (
     <section className = { Styles.postman }>
         <img src = { avatar } />
         <span>Welcome online, {firstName}!</span>
     </section>
 );
 
-Postman.contextTypes = {
-    avatar:    PropTypes.string.isRequired,
-    firstName: PropTypes.string.isRequired
+Postman.propTypes = {
+    profile: object.isRequired
 };
 
 export default Postman;

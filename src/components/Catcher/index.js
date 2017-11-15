@@ -1,8 +1,8 @@
 // Core
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 // Instruments
-import PropTypes from 'prop-types';
 import Styles from './styles.scss';
 
 export default class Catcher extends Component {

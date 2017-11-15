@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`feed actions: 'createPost' action creator should produce a corresponding action 1`] = `
+Object {
+  "payload": "hello",
+  "type": "CREATE_POST",
+}
+`;
+
+exports[`feed actions: 'createPostFail' action creator should produce a corresponding action 1`] = `
+Object {
+  "payload": "message",
+  "type": "CREATE_POST_FAIL",
+}
+`;
+
+exports[`feed actions: 'createPostSuccess' action creator should produce a corresponding action 1`] = `
+Object {
+  "payload": Object {
+    "firstName": "Jack",
+    "id": "123",
+  },
+  "type": "CREATE_POST_SUCCESS",
+}
+`;
+
+exports[`feed actions: 'deletePost' action creator should produce a corresponding action 1`] = `
+Object {
+  "payload": "123",
+  "type": "DELETE_POST",
+}
+`;
+
+exports[`feed actions: 'deletePostFail' action creator should produce a corresponding action 1`] = `
+Object {
+  "payload": "message",
+  "type": "DELETE_POST_FAIL",
+}
+`;
+
+exports[`feed actions: 'deletePostSuccess' action creator should produce a corresponding action 1`] = `
+Object {
+  "payload": "123",
+  "type": "DELETE_POST_SUCCESS",
+}
+`;
+
+exports[`feed actions: 'fetchPosts' action creator should produce a corresponding action 1`] = `
+Object {
+  "type": "FETCH_POSTS",
+}
+`;
+
+exports[`feed actions: 'fetchPostsFail' action creator should produce a corresponding action 1`] = `
+Object {
+  "payload": "message",
+  "type": "FETCH_POSTS_FAIL",
+}
+`;
+
+exports[`feed actions: 'fetchPostsSuccess' action creator should produce a corresponding action 1`] = `
+Object {
+  "payload": Array [
+    Object {
+      "firstName": "Jack",
+      "id": "123",
+    },
+  ],
+  "type": "FETCH_POSTS_SUCCESS",
+}
+`;
+
+exports[`feed actions: 'likePost' action creator should produce a corresponding action 1`] = `
+Object {
+  "payload": "123",
+  "type": "LIKE_POST",
+}
+`;
+
+exports[`feed actions: 'likePostFail' action creator should produce a corresponding action 1`] = `
+Object {
+  "payload": "message",
+  "type": "LIKE_POST_FAIL",
+}
+`;
+
+exports[`feed actions: 'likePostSuccess' action creator should produce a corresponding action 1`] = `
+Object {
+  "payload": Object {
+    "postId": "123",
+    "userId": "456",
+  },
+  "type": "LIKE_POST_SUCCESS",
+}
+`;

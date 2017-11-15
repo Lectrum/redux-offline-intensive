@@ -1,0 +1,51 @@
+@import '../../theme/palette';
+
+.navigation {
+    display: flex;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    height: 42px;
+    border-bottom: $paletteColor12;
+    background-color: $paletteColor6;
+
+    a, button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 27px;
+        margin: 0 10px;
+        padding: 2px 10px;
+        background-color: transparent;
+        color: $paletteColor2;
+        font-size: 12px;
+        font-weight: 400;
+        text-decoration: none;
+        white-space: nowrap;
+        cursor: pointer;
+
+        img {
+            width: 24px;
+            height: 24px;
+            padding-right: 5px;
+            border: 1px solid $rgbaColor1;
+            border-radius: 50%;
+        }
+
+        &:hover {
+            background: $rgbaColor2;
+        }
+    }
+
+    button {
+        position: absolute;
+        right: 10px;
+        outline: 0;
+    }
+
+    .active {
+        background: $rgbaColor1;
+    }
+}

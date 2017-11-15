@@ -102,7 +102,7 @@ rules:
   no-sequences: 1
   no-throw-literal: 1
   no-unmodified-loop-condition: 1
-  no-unused-expressions: [1, { "allowTernary": true }]
+  no-unused-expressions: [0, { "allowTernary": true }]
   no-unused-labels: 1
   no-useless-call: 1
   no-useless-concat: 1
@@ -164,7 +164,7 @@ rules:
   no-continue: 1
   no-inline-comments: 0
   no-lonely-if: 1
-  no-mixed-operators: 1
+  no-mixed-operators: 0
   no-mixed-spaces-and-tabs: 1
   no-multiple-empty-lines: [1, { "max": 2, "maxEOF": 0 }]
   nj-negated-condition: 0

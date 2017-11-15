@@ -1,3 +1,4 @@
+// HEX
 $paletteColor1: #000;
 $paletteColor2: #FFF;
 $paletteColor3: #E9EBEE;
@@ -9,3 +10,30 @@ $paletteColor8: #282828;
 $paletteColor9: #616770;
 $paletteColor10: #E1E2E3;
 $paletteColor11: #F6F7F9;
+$paletteColor12: #29487D;
+$paletteColor13: #1D2A5B;
+$paletteColor14: #DDDFE2;
+$paletteColor15: #1D2129;
+$paletteColor16: #79BC64;
+$paletteColor17: #578843;
+$paletteColor18: #3B6E22;
+$paletteColor19: #2C5115;
+$paletteColor20: #A4E388;
+$paletteColor21: #67AE55;
+$paletteColor22: #69A74E;
+$paletteColor23: #323544;
+$paletteColor24: #6B84FC;
+$paletteColor25: #F40009;
+$paletteColor26: #FFDBB2;
+$paletteColor27: #FFD6A8;
+$paletteColor28: #794932;
+$paletteColor29: #4F200A;
+$paletteColor30: #ED5754;
+
+// RGBA
+$rgbaColor1: rgba(0, 0, 0, .1);
+$rgbaColor2: rgba(0, 0, 0, .2);
+
+// Gradients
+$gradient1: linear-gradient($paletteColor21, $paletteColor17);
+$gradient2: linear-gradient($paletteColor16, $paletteColor17);

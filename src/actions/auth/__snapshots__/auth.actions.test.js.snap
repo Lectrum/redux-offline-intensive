@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`auth actions: 'login' action creator should produce a corresponding action 1`] = `
+Object {
+  "payload": Object {
+    "avatar": "",
+    "created": 0,
+    "email": "",
+    "firstName": "",
+    "groupId": "",
+    "id": "",
+    "lastName": "",
+    "token": "",
+  },
+  "type": "LOGIN",
+}
+`;
+
+exports[`auth actions: 'loginFail' action creator should produce a corresponding action 1`] = `
+Object {
+  "payload": "message",
+  "type": "LOGIN_FAIL",
+}
+`;
+
+exports[`auth actions: 'loginSuccess' action creator should produce a corresponding action 1`] = `
+Object {
+  "type": "LOGIN_SUCCESS",
+}
+`;
+
+exports[`auth actions: 'logout' action creator should produce a corresponding action 1`] = `
+Object {
+  "type": "LOGOUT",
+}
+`;
+
+exports[`auth actions: 'logoutFail' action creator should produce a corresponding action 1`] = `
+Object {
+  "payload": "message",
+  "type": "LOGOUT_FAIL",
+}
+`;
+
+exports[`auth actions: 'logoutSuccess' action creator should produce a corresponding action 1`] = `
+Object {
+  "type": "LOGOUT_SUCCESS",
+}
+`;
+
+exports[`auth actions: 'signup' action creator should produce a corresponding action 1`] = `
+Object {
+  "payload": Object {
+    "avatar": "",
+    "created": 0,
+    "email": "",
+    "firstName": "",
+    "groupId": "",
+    "id": "",
+    "lastName": "",
+    "token": "",
+  },
+  "type": "SIGNUP",
+}
+`;
+
+exports[`auth actions: 'signupFail' action creator should produce a corresponding action 1`] = `
+Object {
+  "payload": "message",
+  "type": "SIGNUP_FAIL",
+}
+`;
+
+exports[`auth actions: 'signupSuccess' action creator should produce a corresponding action 1`] = `
+Object {
+  "type": "SIGNUP_SUCCESS",
+}
+`;

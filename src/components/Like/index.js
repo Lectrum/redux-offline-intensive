@@ -1,16 +1,11 @@
 // Core
 import React, { Component } from 'react';
+import { string, func, arrayOf, shape } from 'prop-types';
 
 // Instruments
 import Styles from './styles.scss';
-import { string, func, arrayOf, shape } from 'prop-types';
 
 export default class Like extends Component {
-    static contextTypes = {
-        firstName: string.isRequired,
-        lastName:  string.isRequired
-    };
-
     static propTypes = {
         id:       string.isRequired,
         likePost: func.isRequired,
@@ -19,20 +14,19 @@ export default class Like extends Component {
                 firstName: string.isRequired,
                 lastName:  string.isRequired
             }).isRequired
-        ).isRequired
-    };
-
-    static defaultProps = {
-        likes: []
+        ).isRequired,
+        userFirstName: string.isRequired,
+        userId:        string.isRequired,
+        userLastName:  string.isRequired
     };
 
     constructor () {
         super();
 
+        this.likePost = ::this._likePost;
         this.showLikers = ::this._showLikers;
         this.hideLikers = ::this._hideLikers;
-        this.likePost = ::this._likePost;
-        this.getLikedPosts = ::this._getLikedPosts;
+        this.getLikedByMe = ::this._getLikedByMe;
         this.getLikersList = ::this._getLikersList;
         this.getTotalLikes = ::this._getTotalLikes;
     }
@@ -40,6 +34,12 @@ export default class Like extends Component {
     state = {
         showLikers: false
     };
+
+    _likePost () {
+        const { likePost, id } = this.props;
+
+        likePost(id);
+    }
 
     _showLikers () {
         this.setState(() => ({
@@ -53,20 +53,10 @@ export default class Like extends Component {
         }));
     }
 
-    _likePost () {
-        const { likePost, id } = this.props;
-        const { firstName, lastName } = this.context;
+    _getLikedByMe () {
+        const { userId, likes } = this.props;
 
-        likePost(id, firstName, lastName);
-    }
-
-    _getLikedPosts () {
-        const { firstName: ownFirstName, lastName: ownLastName } = this.context;
-
-        return this.props.likes.some(
-            ({ firstName, lastName }) =>
-                `${firstName} ${lastName}` === `${ownFirstName} ${ownLastName}`
-        );
+        return likes.some(({ id }) => id === userId);
     }
 
     _getLikersList () {
@@ -83,24 +73,21 @@ export default class Like extends Component {
     }
 
     _getTotalLikes () {
-        const { likes } = this.props;
-        const { firstName: ownFirstName, lastName: ownLastName } = this.context;
+        const { likes, userFirstName, userLastName } = this.props;
 
-        const likedByMe = likes.some(
-            ({ firstName, lastName }) =>
-                `${firstName} ${lastName}` === `${ownFirstName} ${ownLastName}`
-        );
+        const likedByMe = this.getLikedByMe();
 
         return likes.length === 1 && likedByMe
-            ? `${ownFirstName} ${ownLastName}`
+            ? `${userFirstName} ${userLastName}`
             : likes.length === 2 && likedByMe
                 ? `You and ${likes.length - 1} other`
                 : likedByMe ? `You and ${likes.length - 1} others` : likes.length;
     }
 
     render () {
-        const likedPosts = this.getLikedPosts();
-        const likeStyles = likedPosts
+        const likedByMe = this.getLikedByMe();
+
+        const likeStyles = likedByMe
             ? `${Styles.icon} ${Styles.liked}`
             : `${Styles.icon}`;
 

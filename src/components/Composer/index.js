@@ -1,19 +1,14 @@
 // Core
 import React, { Component } from 'react';
+import { func, object } from 'prop-types';
 
 // Instruments
 import Styles from './styles.scss';
-import { string, func } from 'prop-types';
-import { getRandomColor } from '../../helpers';
 
 export default class Composer extends Component {
-    static contextTypes = {
-        avatar:    string.isRequired,
-        firstName: string.isRequired
-    };
-
     static propTypes = {
-        createPost: func.isRequired
+        createPost: func.isRequired,
+        profile:    object.isRequired
     };
 
     constructor () {
@@ -21,14 +16,12 @@ export default class Composer extends Component {
 
         this.handleSubmit = ::this._handleSubmit;
         this.handleTextareaChange = ::this._handleTextareaChange;
-        this.handleTextareaCopy = ::this._handleTextareaCopy;
         this.handleTextareaKeyPress = ::this._handleTextareaKeyPress;
         this.createPost = ::this._createPost;
     }
 
     state = {
-        comment:           '',
-        avatarBorderColor: '#90949C'
+        comment: ''
     };
 
     _handleSubmit (event) {
@@ -43,7 +36,7 @@ export default class Composer extends Component {
             return;
         }
 
-        this.props.createPost({ comment });
+        this.props.createPost(comment);
 
         this.setState(() => ({
             comment: ''
@@ -56,37 +49,25 @@ export default class Composer extends Component {
         this.setState(() => ({ comment }));
     }
 
-    _handleTextareaCopy (event) {
-        event.preventDefault();
-    }
-
     _handleTextareaKeyPress (event) {
-        const enterKey = event.key === 'Enter';
-
-        enterKey
-            ? this.createPost()
-            : this.setState(() => ({
-                avatarBorderColor: getRandomColor()
-            }));
-
-        if (enterKey) {
+        if (event.key === 'Enter') {
             event.preventDefault();
+            this.createPost();
         }
     }
 
     render () {
-        const { avatar, firstName } = this.context;
-        const { comment, avatarBorderColor } = this.state;
+        const { profile: { avatar, firstName }} = this.props;
+        const { comment } = this.state;
 
         return (
             <section className = { Styles.composer }>
-                <img src = { avatar } style = { { borderColor: avatarBorderColor } } />
+                <img src = { avatar } />
                 <form onSubmit = { this.handleSubmit }>
                     <textarea
                         placeholder = { `What's on your mind, ${firstName}?` }
                         value = { comment }
                         onChange = { this.handleTextareaChange }
-                        onCopy = { this.handleTextareaCopy }
                         onKeyPress = { this.handleTextareaKeyPress }
                     />
                     <input type = 'submit' value = 'Post' />

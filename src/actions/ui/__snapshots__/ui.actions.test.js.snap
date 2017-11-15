@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ui actions: 'initialize' action creator should produce a corresponding action 1`] = `
+Object {
+  "type": "INITIALIZE",
+}
+`;
+
+exports[`ui actions: 'startFetchingAuth' action creator should produce a corresponding action 1`] = `
+Object {
+  "type": "START_FETCHING_AUTH",
+}
+`;
+
+exports[`ui actions: 'startFetchingAvatar' action creator should produce a corresponding action 1`] = `
+Object {
+  "type": "START_FETCHING_AVATAR",
+}
+`;
+
+exports[`ui actions: 'startFetchingFeed' action creator should produce a corresponding action 1`] = `
+Object {
+  "type": "START_FETCHING_FEED",
+}
+`;
+
+exports[`ui actions: 'startFetchingProfile' action creator should produce a corresponding action 1`] = `
+Object {
+  "type": "START_FETCHING_PROFILE",
+}
+`;
+
+exports[`ui actions: 'startPasswordEditing' action creator should produce a corresponding action 1`] = `
+Object {
+  "type": "START_PASSWORD_EDITING",
+}
+`;
+
+exports[`ui actions: 'startProfileEditing' action creator should produce a corresponding action 1`] = `
+Object {
+  "type": "START_PROFILE_EDITING",
+}
+`;
+
+exports[`ui actions: 'stopFetchingAuth' action creator should produce a corresponding action 1`] = `
+Object {
+  "type": "STOP_FETCHING_AUTH",
+}
+`;
+
+exports[`ui actions: 'stopFetchingAvatar' action creator should produce a corresponding action 1`] = `
+Object {
+  "type": "STOP_FETCHING_AVATAR",
+}
+`;
+
+exports[`ui actions: 'stopFetchingFeed' action creator should produce a corresponding action 1`] = `
+Object {
+  "type": "STOP_FETCHING_FEED",
+}
+`;
+
+exports[`ui actions: 'stopFetchingProfile' action creator should produce a corresponding action 1`] = `
+Object {
+  "type": "STOP_FETCHING_PROFILE",
+}
+`;
+
+exports[`ui actions: 'stopPasswordEditing' action creator should produce a corresponding action 1`] = `
+Object {
+  "type": "STOP_PASSWORD_EDITING",
+}
+`;
+
+exports[`ui actions: 'stopProfileEditing' action creator should produce a corresponding action 1`] = `
+Object {
+  "type": "STOP_PROFILE_EDITING",
+}
+`;

@@ -1,13 +1,6 @@
 exclude:
   - 'node_modules/**'
-  - 'development/components/Console/*/*.scss'
-  - 'development/components/CoursesList/*/*.scss'
-  - 'development/components/CoursesView/*/*.scss'
-  - 'development/components/CoursesViewHost/*/*.scss'
-  - 'development/components/Lesson/*/*.scss'
-  - 'development/components/ReactCourseView/*/*.scss'
-  - 'development/components/Status/*/*.scss'
-  - 'development/components/_component/*/*.scss'
+  - './src/components/Loading/styles.scss'
 
 linters:
   PropertySortOrder:
