@@ -2,19 +2,42 @@
 import React, { Component } from 'react';
 
 // Instruments
-import Styles from './styles';
-import moment from 'moment';
+import { string } from 'prop-types';
+import avatar from '../../theme/assets/homer.png';
+
+// Components
+import Feed from '../../components/Feed';
+import Catcher from '../../components/Catcher';
+
+const GROUP_ID = '';
+const TOKEN = '';
+
+const options = {
+    api:       `https://lab.lectrum.io/react/api/${GROUP_ID}`,
+    avatar,
+    firstName: 'Homer',
+    lastName:  'Simpson',
+    token:     TOKEN
+};
 
 export default class App extends Component {
+    static childContextTypes = {
+        api:       string.isRequired,
+        avatar:    string.isRequired,
+        firstName: string.isRequired,
+        lastName:  string.isRequired,
+        token:     string.isRequired
+    };
 
-    timer = setInterval(() => this.forceUpdate(), 1000);
+    getChildContext () {
+        return options;
+    }
 
     render () {
         return (
-            <section className = { Styles.app }>
-                <h1>Welcome!</h1>
-                <p>It is {moment().format('MMMM D h:mm:ss a')}.</p>
-            </section>
+            <Catcher>
+                <Feed />
+            </Catcher>
         );
     }
 }

@@ -1,0 +1,26 @@
+@import '../../theme/palette';
+
+.postman {
+    display: flex;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    align-items: center;
+    width: 250px;
+    padding: 4px;
+    border: 1px solid $paletteColor5;
+    border-radius: 3px;
+    background-color: $paletteColor2;
+
+    img {
+        width: 40px;
+        height: 40px;
+        margin-right: 15px;
+        cursor: pointer;
+    }
+
+    span {
+        display: block;
+        padding-top: 5px;
+    }
+}

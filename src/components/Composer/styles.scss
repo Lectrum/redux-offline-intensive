@@ -1,0 +1,74 @@
+@import '../../theme/palette';
+
+.composer {
+    display: flex;
+    position: relative;
+    width: 500px;
+    height: 130px;
+    margin-bottom: 10px;
+    padding: 12px;
+    border: 1px solid darken($paletteColor2, 15%);
+    border-radius: 3px;
+    background-color: $paletteColor2;
+
+    img {
+        width: 40px;
+        height: 40px;
+        margin-right: 15px;
+        transition: border .5s ease;
+        border: 1px solid $paletteColor5;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    input[type='submit'] {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        width: 58px;
+        height: 22px;
+        padding-top: 3px;
+        transition: background-color .2s ease-in;
+        border: 0;
+        border-radius: 2px;
+        outline: 0;
+        background-color: $paletteColor6;
+        color: $paletteColor2;
+        font-size: 12px;
+        letter-spacing: 1px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $paletteColor7;
+        }
+    }
+
+    textarea {
+        width: 410px;
+        height: 80px;
+        margin-top: 7px;
+        transition: font-size .5s ease;
+        border: 0;
+        outline: 0;
+        font-size: 14px;
+        font-weight: 300;
+        resize: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        &::placeholder {
+            transition: color .4s ease-out;
+            color: $paletteColor5;
+        }
+
+        &:focus::placeholder {
+            color: lighten($paletteColor5, 20%);
+        }
+
+        &:focus {
+            font-size: 24px;
+        }
+    }
+}

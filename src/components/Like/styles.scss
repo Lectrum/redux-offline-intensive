@@ -1,0 +1,92 @@
+@import '../../theme/palette';
+
+.like {
+    margin-top: 50px;
+
+    ::selection {
+        user-select: none;
+    }
+
+    .icon {
+        position: relative;
+        margin-left: 6px;
+        padding-top: 2px;
+        padding-left: 20px;
+        color: $paletteColor9;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: default;
+
+        &:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: -1px;
+            left: -2px;
+            width: 18px;
+            height: 18px;
+            background-image: url('../../theme/assets/like.png');
+            background-repeat: no-repeat;
+            background-position: 0 -18px;
+            background-size: 18px;
+        }
+
+        &.liked::before {
+            background-position: 0 0;
+        }
+    }
+
+    div {
+        position: relative;
+        height: 26px;
+        margin: 10px 0 0;
+        padding: 7px 0 0 26px;
+        border: 1px solid $paletteColor10;
+        background-color: $paletteColor11;
+
+        ul {
+            position: absolute;
+            z-index: 1;
+            top: 20px;
+            left: 25px;
+            width: 200px;
+            padding: 6px 8px;
+            list-style: none;
+            border-radius: 2px;
+            background-color: $paletteColor8;
+            color: $paletteColor2;
+            font-size: 12px;
+            line-height: 16px;
+            text-align: left;
+        }
+
+        span {
+            color: $paletteColor7;
+            font-size: 13px;
+            cursor: pointer;
+
+            &::before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 8px;
+                left: 3px;
+                width: 18px;
+                height: 19px;
+                background-image: url('../../theme/assets/like.png');
+                background-repeat: no-repeat;
+                background-position: 0 -37px;
+                background-size: 18px;
+            }
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

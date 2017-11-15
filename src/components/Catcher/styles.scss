@@ -1,0 +1,16 @@
+@import '../../theme/palette';
+
+.catcher {
+    margin-top: 10px;
+    padding: 12px;
+    border: 1px solid darken($paletteColor2, 15%);
+    border-radius: 3px;
+    background-color: $paletteColor2;
+    color: $paletteColor5;
+    text-align: center;
+
+    span {
+        color: $paletteColor4;
+        font-size: 24px;
+    }
+}
