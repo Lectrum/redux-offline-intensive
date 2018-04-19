@@ -1,0 +1,155 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: var(--paletteColor3);
+
+    & h1 {
+        font-size: 28px;
+        font-weight: 300;
+    }
+
+    & img {
+        width: 160px;
+        height: 160px;
+        margin: 30px 0;
+        border: 4px solid var(--paletteColor2);
+        border-radius: 2px;
+        background-color: var(--paletteColor2);
+        cursor: pointer;
+    }
+
+    & div {
+        position: relative;
+
+        & span {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 150px;
+            width: 370px;
+            padding: 10px;
+            border: 1px solid var(--paletteColor24);
+            border-radius: 5px;
+            background-color: lighten(#6b84fc, 25%);
+            color: var(--paletteColor23);
+            text-align: center;
+        }
+    }
+
+    & input {
+        width: 230px;
+        height: 30px;
+        margin: 0 auto 12px;
+        padding: 8px 10px;
+        border: 1px solid var(--paletteColor14);
+        outline: none;
+        color: var(--paletteColor15);
+        font-size: 17px;
+
+        &:focus::placeholder {
+            color: lighten(#1d2129, 50%);
+        }
+
+        &[type='checkbox'] {
+            width: auto;
+            margin: 0 10px;
+        }
+    }
+
+    & label {
+        display: flex;
+        align-items: center;
+        margin: 0 20px 40px 0;
+        color: var(--paletteColor8);
+        cursor: pointer;
+        user-select: none;
+    }
+
+    & button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 230px;
+        padding: 0 16px;
+        border-radius: 2px;
+        outline: 0;
+        color: var(--paletteColor2);
+        height: 34px;
+        cursor: pointer;
+    }
+
+    & .loginSubmit,
+    & .profileSubmit {
+        transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+        border: 1px solid var(--paletteColor6);
+        background-color: var(--paletteColor6);
+        font-size: 12px;
+
+        &:hover {
+            border-color: var(--paletteColor7);
+            background-color: var(--paletteColor7);
+        }
+    }
+
+    & .signupSubmit {
+        border: 1px solid;
+        border-color: var(--paletteColor18) var(--paletteColor18)
+            var(--paletteColor19);
+        background: var(--gradient1);
+        background-color: var(--paletteColor22);
+        box-shadow: inset 0 1px 1px var(--paletteColor20);
+        font-size: 19px;
+
+        &:hover {
+            background: $gradient2;
+        }
+    }
+
+    & .error {
+        transition: box-shadow 0.2s ease-out;
+        box-shadow: 0 0 1px 1px var(--paletteColor25);
+    }
+
+    & .disabledInput {
+        background-color: var(--paletteColor3);
+    }
+
+    & .disabledButton {
+        background-color: var(--paletteColor7);
+    }
+
+    & i {
+        position: relative;
+
+        & .cancelUpdate {
+            position: absolute;
+            left: -30px;
+            width: 110px;
+            margin-top: 10px;
+            transition: color 0.2s ease-out;
+            color: var(--paletteColor5);
+            font-size: 10px;
+            cursor: pointer;
+
+            &:hover {
+                color: var(--paletteColor1);
+            }
+        }
+    }
+
+    & a {
+        margin-top: 40px;
+        transition: color 0.2s ease-out;
+        color: var(--paletteColor23);
+        font-size: 14px;
+        text-decoration: none;
+        cursor: pointer;
+
+        &:hover {
+            color: var(--paletteColor12);
+        }
+    }
+}

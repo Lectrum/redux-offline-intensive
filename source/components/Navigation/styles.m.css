@@ -1,0 +1,93 @@
+.navigation {
+    display: flex;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 42px;
+    border-bottom: var(--paletteColor12);
+    background-color: var(--paletteColor6);
+
+    & a,
+    & button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 27px;
+        margin: 0 10px;
+        padding: 2px 10px;
+        background-color: transparent;
+        color: var(--paletteColor2);
+        font-size: 12px;
+        font-weight: 400;
+        text-decoration: none;
+        white-space: nowrap;
+        cursor: pointer;
+
+        & img {
+            width: 24px;
+            height: 24px;
+            margin-right: 5px;
+            border: 1px solid var(--rgbaColor1);
+            border-radius: 50%;
+        }
+
+        &:hover {
+            background: var(--rgbaColor2);
+        }
+    }
+
+    & button {
+        position: absolute;
+        right: 10px;
+        outline: 0;
+        border-radius: 5px;
+    }
+
+    & .active {
+        background: var(--rgbaColor2);
+    }
+
+    & .status {
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px;
+        width: 55px;
+        min-width: max-content;
+        height: 12px;
+        background: var(--paletteColor3);
+        top: 8px;
+        left: 5px;
+        color: var(--paletteColor7);
+        border: 1px solid var(--paletteColor7);
+        border-radius: 5px;
+        font-size: 14px;
+        user-select: none;
+        cursor: pointer;
+
+        & span {
+            margin-top: 2px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+        }
+    }
+
+    & .online {
+        & span {
+            background: var(--paletteColor17);
+            box-shadow: 0 0 2px 0px var(--paletteColor17);
+        }
+    }
+
+    & .offline {
+        & span {
+            background: var(--paletteColor25);
+            box-shadow: 0 0 2px 0px var(--paletteColor25);
+        }
+    }
+}

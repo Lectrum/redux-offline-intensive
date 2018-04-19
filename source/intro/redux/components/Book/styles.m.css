@@ -1,0 +1,30 @@
+.book {
+    min-height: 100vh;
+    padding: 100px 5%;
+    background-color: var(--paletteColor31);
+    color: var(--paletteColor29);
+    text-align: center;
+
+    & h1 {
+        margin: 0 0 30px;
+        font-size: 35px;
+    }
+
+    & div {
+        font-weight: 700;
+
+        & select {
+            margin: 50px 10px;
+        }
+    }
+
+    & p {
+        line-height: 25px;
+        text-align: left;
+    }
+
+    & footer {
+        font-size: 20px;
+        font-weight: 900;
+    }
+}
