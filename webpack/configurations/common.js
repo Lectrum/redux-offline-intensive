@@ -24,8 +24,7 @@ export const generateCommonConfiguration = () => {
                 '.css',
                 '.m.css',
                 '.png',
-                '.jpg',
-                '.scss'
+                '.jpg'
             ],
             modules: [source, 'node_modules'],
         },
@@ -40,17 +39,20 @@ export const generateCommonConfiguration = () => {
                     use:     'babel-loader',
                 },
                 {
-                    test:    /\.eot|svg|ttf|woff2?(\?v=\d+\.\d+\.\d+)?$/,
+                    test:    /\.eot|ttf|woff2?(\?v=\d+\.\d+\.\d+)?$/,
                     include: source,
                     use:     {
                         loader:  'file-loader',
                         options: {
-                            name: 'fonts/[name].[hash:5].[ext]',
+                            name:       'fonts/[name].[hash:5].[ext]',
+                            publicPath: REPOSITORY_NAME
+                                ? `/${process.env.REPOSITORY_NAME}/`
+                                : '',
                         },
                     },
                 },
                 {
-                    test:    /\.jpe?g|png$/,
+                    test:    /\.jpe?g|png|svg$/,
                     include: source,
                     use:     {
                         loader:  'file-loader',
@@ -68,7 +70,7 @@ export const generateCommonConfiguration = () => {
             new HtmlWebpackPlugin({
                 inject:      false,
                 template:    HtmlWebpackTemplate,
-                title:       'React invensive',
+                title:       'Redux invensive boilerplate',
                 appMountIds: ['app', 'spinner'],
                 mobile:      true,
             }),
