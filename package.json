@@ -8,7 +8,7 @@
         "build:config": "webpack --config=./webpack/webpack.config.babel.js --env production --display-reasons",
         "build:dev": "cross-env-shell NODE_ENV=production BUILD_ENV=development npm run build:config",
         "build:prod": "cross-env-shell NODE_ENV=production BUILD_ENV=production npm run build:config",
-        "build:prod-github": "cross-env-shell NODE_ENV=production BUILD_ENV=production REPOSITORY_NAME=имя-твоего-репозитория npm run build:config",
+        "build:prod-github": "cross-env-shell NODE_ENV=production BUILD_ENV=production REPOSITORY_NAME=redux-intensive-boilerplate npm run build:config",
         "build:analyze": "run-s build:prod analyze",
         "analyze": "webpack-bundle-analyzer build/build-stats.json build",
         "lint": "run-s lint:javascript lint:css",

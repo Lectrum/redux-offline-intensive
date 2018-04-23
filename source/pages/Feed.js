@@ -27,7 +27,7 @@ export default class Feed extends Component {
 
         return (
             <>
-                <Spinner spin = { isFeedFetching } />
+                <Spinner isSpinning = { isFeedFetching } />
                 <Catcher>
                     <Posts actions = { actions } posts = { posts } profile = { profile } />
                 </Catcher>
