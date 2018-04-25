@@ -9,6 +9,6 @@
         "BUILD_ENV": "development"
     },
     "exec":
-        "webpack-dev-server --config='./webpack/webpack.config.babel.js' --env development",
+        "webpack-dev-server --config=./webpack/webpack.config.babel.js --env development",
     "ext": "js json"
 }
