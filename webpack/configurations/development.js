@@ -25,6 +25,9 @@ export const generateDevelopmentConfiguration = () =>
                 port:               3000,
                 stats:              'errors-only',
                 useLocalIp:         true,
+                headers:            {
+                    'Access-Control-Allow-Origin': '*',
+                },
             },
             module: {
                 rules: [
