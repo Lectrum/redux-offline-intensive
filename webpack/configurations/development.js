@@ -25,9 +25,6 @@ export const generateDevelopmentConfiguration = () =>
                 port:               3000,
                 stats:              'errors-only',
                 useLocalIp:         true,
-                headers:            {
-                    'Access-Control-Allow-Origin': '*',
-                },
             },
             module: {
                 rules: [
@@ -49,30 +46,10 @@ export const generateDevelopmentConfiguration = () =>
                             },
                             loadPostCSS()
                         ],
-                    },
-                    {
-                        test: /\.scss$/,
-                        use:  [
-                            {
-                                loader: 'style-loader',
-                            },
-                            {
-                                loader:  'css-loader',
-                                options: {
-                                    modules: true,
-                                },
-                            },
-                            {
-                                loader:  'sass-loader',
-                                options: {
-                                    modules: true,
-                                },
-                            }
-                        ],
                     }
                 ],
             },
             plugins: [new HotModuleReplacementPlugin()],
         },
-        generateSourceMaps({ devtool: 'cheap-module-eval-source-map' })
+        generateSourceMaps({ devtool: 'cheap-module-eval-source-map' }),
     );

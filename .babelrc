@@ -16,7 +16,6 @@
         ["@babel/plugin-proposal-decorators", { "legacy": true }],
         "@babel/plugin-proposal-function-bind",
         "@babel/plugin-proposal-object-rest-spread",
-        "react-hot-loader/babel",
-        "babel-plugin-redux-saga"
+        "react-hot-loader/babel"
     ]
 }
