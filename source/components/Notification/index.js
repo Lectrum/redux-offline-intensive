@@ -1,7 +1,7 @@
 // Core
 import React, { Component } from 'react';
 import { Transition } from 'react-transition-group';
-import { fromTo } from 'gsap';
+import gsap from 'gsap';
 
 // Instruments
 import Styles from './styles.m.css';
@@ -18,7 +18,7 @@ export default class Notification extends Component {
     };
 
     _handleNotificationAppear = (postman) => {
-        fromTo(
+        gsap.fromTo(
             postman,
             0.5,
             { opacity: 0 },
@@ -34,7 +34,7 @@ export default class Notification extends Component {
     _handleNotificationDisappear = (postman) => {
         const { hideNotification, id } = this.props;
 
-        fromTo(
+        gsap.fromTo(
             postman,
             0.5,
             { opacity: 1 },
