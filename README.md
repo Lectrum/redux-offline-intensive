@@ -4,21 +4,25 @@
 
 ## Чтобы отправиться в путь:
 
-*   `git clone git@github.com:Lectrum/redux-intensive-boilerplate.git`
-*   `cd redux-intensive-boilerplate`
-*   `yarn` или `npm i`
-*   `yarn start` или `npm start`
+-   `git clone git@github.com:Lectrum/redux-intensive-boilerplate.git`
+-   `cd redux-intensive-boilerplate`
+-   `yarn` или `npm i`
+-   `yarn start` или `npm start`
+
+> Для работы с API тебе пригодится [документация](https://lab.lectrum.io/docs/redux/).
 
 ## Чтобы задеплоить приложение на github pages:
 
-*   Запуши репозиторий с приложением на github
-*   В файле `package.json`, в скрипте `build:prod-github` — укажи значение переменной окружения `REPOSITORY_NAME` в виде имени своего репозитория на github
-*   Затем — `yarn deploy` или `npm run deploy`
+-   Запуши репозиторий с приложением на github
+-   В файле `package.json`, в скрипте `build:prod-github` — укажи значение переменной окружения `REPOSITORY_NAME` в виде имени своего репозитория на github
+-   Затем — `yarn deploy` или `npm run deploy`
 
 ###### Заметка: после деплоя, приложение будет доступно по адресу:
-> `https://имя-твоего-пользователя-гитхаб.github.io/имя-твоего-репозитория-с-приложением`
 
+> `https://имя-твоего-пользователя-гитхаб.github.io/имя-твоего-репозитория-с-приложением`
+>
+> Также, убедись, что настройки роутера также учитывают имя твоего репозитория. Пример роута: ``/имя-твоего-репозитория/login`
 
 ## Чтобы сбилдить приложение без github pages:
 
-*   `yarn build:prod` или `npm run build:prod`
+-   `yarn build:prod` или `npm run build:prod`

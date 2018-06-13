@@ -35,10 +35,17 @@ const fetchResponseSuccess = {
     json:   jest.fn(() => Promise.resolve(responseDataSuccess)),
 };
 
-const fetchResponseFail = {
+const fetchResponseFail401 = {
     status: 401,
     json:   jest.fn(() => Promise.resolve(responseDataFail)),
 };
+
+const fetchResponseFail400 = {
+    status: 400,
+    json:   jest.fn(() => Promise.resolve(responseDataFail)),
+};
+
+const url = 'https://www.url.com';
 
 global.__ = {
     userProfile,
@@ -48,8 +55,10 @@ global.__ = {
     responseDataSuccess,
     responseDataFail,
     fetchResponseSuccess,
-    fetchResponseFail,
+    fetchResponseFail401,
+    fetchResponseFail400,
     credentials,
+    url,
 };
 global.fetch = fetch;
 global.localStorage = new LocalStorage();

@@ -9,7 +9,7 @@ export default class Composer extends Component {
         comment: '',
     };
 
-    _handleSubmit = (event) => {
+    _submitComment = (event) => {
         event.preventDefault();
         this._createPost();
     };
@@ -21,17 +21,19 @@ export default class Composer extends Component {
             return;
         }
 
-        this.props.createPost(comment);
+        this.props.actions.createPostAsync(comment);
 
-        this.setState(() => ({
+        this.setState({
             comment: '',
-        }));
+        });
     };
 
     _handleTextareaChange = (event) => {
         const { value: comment } = event.target;
 
-        this.setState(() => ({ comment }));
+        this.setState({
+            comment,
+        });
     };
 
     _handleTextareaKeyPress = (event) => {
@@ -42,22 +44,22 @@ export default class Composer extends Component {
     };
 
     render () {
-        const { profile } = this.props;
         const { comment } = this.state;
+        const { profile } = this.props;
 
         return (
             <section className = { Styles.composer }>
                 <img src = { profile.get('avatar') } />
-                <form onSubmit = { this._handleSubmit }>
+                <form onSubmit = { this._submitComment }>
                     <textarea
                         placeholder = { `What's on your mind, ${profile.get(
-                            'firstName'
+                            'firstName',
                         )}?` }
                         value = { comment }
                         onChange = { this._handleTextareaChange }
                         onKeyPress = { this._handleTextareaKeyPress }
                     />
-                    <input type = 'submit' value = 'Post' />
+                    <input type = 'submit' value = 'Запостить' />
                 </form>
             </section>
         );

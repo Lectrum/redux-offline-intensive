@@ -2,20 +2,24 @@
 import React from 'react';
 import { Control } from 'react-redux-form';
 
-const Input = (props) => (
-    <Control
-        { ...props }
-        mapProps = { {
-            className: ({
-                fieldValue: { submitFailed, touched, errors: { valid }},
-            }) =>
-                !valid
-                    ? props.disabledstyle
-                    : submitFailed || touched && valid
-                        ? props.errorstyle
-                        : props.disabledstyle,
-        } }
-    />
-);
+const Input = (props) => {
+    const { disabledStyle, invalidStyle, ...restProps } = props;
+
+    return (
+        <Control.text
+            { ...restProps }
+            mapProps = { {
+                className: (input) => {
+                    if (props.disabled) {
+                        return disabledStyle;
+                    }
+                    if (input.fieldValue.touched && !input.fieldValue.valid) {
+                        return invalidStyle;
+                    }
+                },
+            } }
+        />
+    );
+};
 
 export default Input;

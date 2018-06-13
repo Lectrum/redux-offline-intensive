@@ -14,6 +14,7 @@ plugins:
 
 globals:
     __: false
+    __DEV__: false
 
 env:
   browser: true

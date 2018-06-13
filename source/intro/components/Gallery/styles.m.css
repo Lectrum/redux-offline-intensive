@@ -1,0 +1,40 @@
+.gallery {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--paletteColor15);
+    padding-top: 1%;
+    padding: 15px 50px;
+
+    & img {
+        width: 100%;
+        user-select: none;
+    }
+
+    & div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & button {
+            display: flex;
+            justify-content: center;
+            cursor: pointer;
+            user-select: none;
+            margin: 7px;
+            border-radius: 7px;
+            font-size: 26px;
+            font-weight: 700;
+            background-color: dimgray;
+            border: 0;
+            color: antiquewhite;
+            transition: box-shadow 0.3s ease;
+
+            &:hover {
+                box-shadow: 0 2px 3px -1px wheat;
+            }
+        }
+    }
+}

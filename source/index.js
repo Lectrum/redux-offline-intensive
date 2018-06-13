@@ -5,7 +5,7 @@ import { render } from 'react-dom';
 // Instruments
 import './theme/init';
 
-// Main
-import Book from './intro/flux';
+// Intro
+import Gallery from './intro';
 
-render(<Book />, document.getElementById('app'));
+render(<Gallery />, document.getElementById('app'));

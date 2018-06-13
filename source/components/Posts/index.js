@@ -1,53 +1,68 @@
 // Core
 import React, { Component } from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { List } from 'immutable';
+import FlipMove from 'react-flip-move';
 
 // Instruments
 import Styles from './styles.m.css';
+import { mockedProfile } from '../../instruments/mockedData';
 
 // Components
-import { Composer, Catcher, Post, Counter } from 'components';
+import { Composer, Catcher, Post } from '../../components';
 
 export default class Posts extends Component {
+    static defaultProps = {
+        // State
+        posts:   List(),
+        profile: mockedProfile,
+
+        // Actions
+        actions: {
+            // Users
+            fetchUsersAsync: () => {},
+
+            // Posts
+            fetchPostsAsync: () => {},
+            removePostAsync: () => {},
+            createPostAsync: () => {},
+            likePostAsync:   () => {},
+            unlikePostAsync: () => {},
+
+            // Redux form
+            reset: () => {},
+        },
+    };
+
     componentDidMount () {
-        this.props.actions.fetchPosts();
-        this.props.actions.fetchUsers();
+        const { actions } = this.props;
+
+        actions.fetchPostsAsync();
+        actions.fetchUsersAsync();
     }
 
     render () {
-        const { actions, posts: postsData, profile } = this.props;
+        const { actions, posts, profile } = this.props;
 
-        const posts = postsData.map((post) => {
+        const postsJSX = posts.map((post) => {
             return (
-                <CSSTransition
-                    classNames = { {
-                        enter:       Styles.postInStart,
-                        enterActive: Styles.postInEnd,
-                        exit:        Styles.postOutStart,
-                        exitActive:  Styles.postOutEnd,
-                    } }
-                    key = { post.get('id') }
-                    timeout = { { enter: 400, exit: 500 } }>
-                    <Catcher>
-                        <Post
-                            actions = { actions }
-                            author = { post.get('author') }
-                            comment = { post.get('comment') }
-                            created = { post.get('created') }
-                            id = { post.get('id') }
-                            likes = { post.get('likes') }
-                            profile = { profile }
-                        />
-                    </Catcher>
-                </CSSTransition>
+                <Catcher key = { post.get('id') }>
+                    <Post
+                        actions = { actions }
+                        author = { post.get('author') }
+                        comment = { post.get('comment') }
+                        created = { post.get('created') }
+                        id = { post.get('id') }
+                        likes = { post.get('likes') }
+                        profile = { profile }
+                    />
+                </Catcher>
             );
         });
 
         return (
-            <section className = { Styles.wall }>
-                <Composer createPost = { actions.createPost } profile = { profile } />
-                <Counter count = { posts.size } />
-                <TransitionGroup>{posts}</TransitionGroup>
+            <section className = { Styles.posts }>
+                <Composer actions = { actions } profile = { profile } />
+                <FlipMove>{postsJSX}</FlipMove>
             </section>
         );
     }

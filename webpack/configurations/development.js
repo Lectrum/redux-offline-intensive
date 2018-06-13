@@ -1,22 +1,32 @@
 // Presets
-import { source } from '../paths';
 import { generateCommonConfiguration } from './common';
+
+// Webpack modules
+import { loadDevelopmentCss, setupHotModuleReplacement } from '../modules';
 
 // Instruments
 import merge from 'webpack-merge';
-import { loadPostCSS, generateSourceMaps } from '../modules';
-
-// Plugins
-import { HotModuleReplacementPlugin } from 'webpack';
 
 export const generateDevelopmentConfiguration = () =>
     merge(
+        // Generator
         generateCommonConfiguration(),
+
+        // Loaders
+        loadDevelopmentCss(),
+
+        // Plugins
+        setupHotModuleReplacement(),
         {
-            mode:   'development',
+            mode:  'development',
+            entry: {
+                // ? Фикс периодического дисконнекта devserver. Убрать после перехода на webpack-serve
+                client: 'webpack-dev-server/client?http://localhost:3000',
+            },
             output: {
                 filename: 'js/[name].[hash:5].js',
             },
+            devtool:   'cheap-module-eval-source-map',
             devServer: {
                 hot:                true,
                 historyApiFallback: true,
@@ -26,30 +36,5 @@ export const generateDevelopmentConfiguration = () =>
                 stats:              'errors-only',
                 useLocalIp:         true,
             },
-            module: {
-                rules: [
-                    {
-                        test:    /\.css$/,
-                        include: [source, /node_modules/],
-                        use:     [
-                            {
-                                loader:  'style-loader',
-                                options: {
-                                    sourceMap: true,
-                                },
-                            },
-                            {
-                                loader:  'css-loader',
-                                options: {
-                                    sourceMap: true,
-                                },
-                            },
-                            loadPostCSS()
-                        ],
-                    }
-                ],
-            },
-            plugins: [new HotModuleReplacementPlugin()],
         },
-        generateSourceMaps({ devtool: 'cheap-module-eval-source-map' }),
     );

@@ -1,28 +1,8 @@
-.wall {
+.posts {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh;
-    padding: 65px 0;
+    min-height: calc(100vh - 42px);
+    padding: 10px 0;
     background-color: var(--paletteColor3);
-
-    & .postInStart {
-        transform: scale(0.1);
-        opacity: 0.01;
-    }
-
-    & .postInEnd {
-        transform: scale(1);
-        transition: opacity 400ms var(--cubic1), transform 400ms var(--cubic1);
-        opacity: 1;
-    }
-
-    & .postOutStart {
-        opacity: 1;
-    }
-
-    & .postOutEnd {
-        transition: opacity 500ms var(--cubic1);
-        opacity: 0.01;
-    }
 }
