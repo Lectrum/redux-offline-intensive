@@ -43,7 +43,7 @@ export const loadImages = () => ({
 });
 
 export const setupFavicon = () => ({
-    plugins: [new FaviconsWebpackPlugin('./static/images/favicon.png')],
+    plugins: [new FaviconsWebpackPlugin('./static/icons/favicon.png')],
 });
 
 export const setupHtml = () => ({

@@ -29,8 +29,8 @@
         padding: 2px 10px;
         background-color: transparent;
         color: var(--paletteColor2);
-        font-size: 13px;
-        font-weight: 500;
+        font-size: 14px;
+        font-weight: 700;
         text-decoration: none;
         white-space: nowrap;
         cursor: pointer;
@@ -60,7 +60,7 @@
 
     & .hidden {
         visibility: hidden;
-        width: 5px;
+        flex-grow: 0;
     }
 
     & .status {
@@ -68,14 +68,14 @@
         justify-content: space-between;
         align-items: center;
         padding: 5px;
-        width: 80px;
-        min-width: max-content;
+        min-width: 80px;
         height: 24px;
         background: #e9ebee;
         color: #365899;
         border: 1px solid #365899;
         border-radius: 5px;
         font-size: 14px;
+        font-weight: 500;
         user-select: none;
         cursor: pointer;
         margin-right: 5px;

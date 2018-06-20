@@ -42,7 +42,7 @@ export const generateCommonConfiguration = () => {
             },
             output: {
                 path:       build,
-                publicPath: REPOSITORY_NAME ? `/${REPOSITORY_NAME}` : '/',
+                publicPath: REPOSITORY_NAME ? `/${REPOSITORY_NAME}/` : '/',
             },
             resolve: {
                 extensions: [
