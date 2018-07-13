@@ -43,7 +43,14 @@ export const loadImages = () => ({
 });
 
 export const setupFavicon = () => ({
-    plugins: [new FaviconsWebpackPlugin('./static/icons/favicon.png')],
+    plugins: [
+        new FaviconsWebpackPlugin({
+            logo:            './static/favicon/favicon.svg',
+            prefix:          'images/favicon/icon-[hash]',
+            statsFilename:   'iconstats-[hash].json',
+            persistentCache: true,
+        })
+    ],
 });
 
 export const setupHtml = () => ({
@@ -51,7 +58,7 @@ export const setupHtml = () => ({
         new HtmlWebpackPlugin({
             inject:   false,
             template: HtmlWebpackTemplate,
-            title:    'Redux intensive boilerplate',
+            title:    'Интенсив по Redux: Facebook',
             meta:     [
                 {
                     name:    'viewport',

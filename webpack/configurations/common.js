@@ -1,3 +1,6 @@
+// Core
+import getRepositoryName from 'git-repo-name';
+
 // Paths
 import { source, build } from '../paths';
 
@@ -18,7 +21,9 @@ import merge from 'webpack-merge';
 
 export const generateCommonConfiguration = () => {
     const BUILD_ENV = process.env.BUILD_ENV;
-    const REPOSITORY_NAME = process.env.REPOSITORY_NAME;
+    const IS_DEPLOYING_TO_GITHUB_PAGES =
+        process.env.DEPLOY_TARGET === 'github-pages';
+    const REPOSITORY_NAME = getRepositoryName.sync();
 
     return merge(
         // Loaders
@@ -42,7 +47,9 @@ export const generateCommonConfiguration = () => {
             },
             output: {
                 path:       build,
-                publicPath: REPOSITORY_NAME ? `/${REPOSITORY_NAME}/` : '/',
+                publicPath: IS_DEPLOYING_TO_GITHUB_PAGES
+                    ? `/${REPOSITORY_NAME}/`
+                    : '/',
             },
             resolve: {
                 extensions: [
