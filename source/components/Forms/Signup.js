@@ -5,7 +5,7 @@ import cx from 'classnames';
 
 // Instruments
 import Styles from './styles.m.css';
-import { signupSchema } from '../../instruments';
+import { signup } from '../../bus/forms/shapes';
 
 export default class SignupForm extends Component {
     static defaultProps = {
@@ -25,13 +25,7 @@ export default class SignupForm extends Component {
 
         return (
             <Formik
-                initialValues = { {
-                    firstName: '',
-                    lastName:  '',
-                    email:     '',
-                    password:  '',
-                    invite:    '',
-                } }
+                initialValues = { signup.shape }
                 render = { (props) => {
                     const { isValid, touched, errors } = props;
 
@@ -105,7 +99,7 @@ export default class SignupForm extends Component {
                         </Form>
                     );
                 } }
-                validationSchema = { signupSchema }
+                validationSchema = { signup.schema }
                 onSubmit = { this._submitSignupForm }
             />
         );

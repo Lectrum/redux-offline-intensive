@@ -4,7 +4,7 @@ import { Formik, Form, Field } from 'formik';
 
 // Instruments
 import Styles from './styles.m.css';
-import { composerSchema } from '../../instruments';
+import { composer } from '../../bus/forms/shapes';
 
 export default class Composer extends Component {
     formikForm = createRef();
@@ -35,9 +35,7 @@ export default class Composer extends Component {
 
         return (
             <Formik
-                initialValues = { {
-                    comment: '',
-                } }
+                initialValues = { composer.shape }
                 ref = { this.formikForm }
                 render = { () => {
                     return (
@@ -56,7 +54,7 @@ export default class Composer extends Component {
                         </section>
                     );
                 } }
-                validationSchema = { composerSchema }
+                validationSchema = { composer.schema }
                 onSubmit = { this._submitForm }
             />
         );

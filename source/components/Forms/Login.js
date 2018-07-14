@@ -5,7 +5,7 @@ import cx from 'classnames';
 
 // Instruments
 import Styles from './styles.m.css';
-import { loginSchema } from '../../instruments';
+import { login } from '../../bus/forms/shapes';
 
 export default class LoginForm extends Component {
     static defaultProps = {
@@ -25,11 +25,7 @@ export default class LoginForm extends Component {
 
         return (
             <Formik
-                initialValues = { {
-                    email:    '',
-                    password: '',
-                    remember: false,
-                } }
+                initialValues = { login.shape }
                 render = { (props) => {
                     const { isValid, touched, errors } = props;
 
@@ -77,7 +73,7 @@ export default class LoginForm extends Component {
                         </Form>
                     );
                 } }
-                validationSchema = { loginSchema }
+                validationSchema = { login.schema }
                 onSubmit = { this._submitLoginForm }
             />
         );

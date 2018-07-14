@@ -6,7 +6,7 @@ import cx from 'classnames';
 
 // Instruments
 import Styles from './styles.m.css';
-import { newPasswordSchema } from '../../instruments';
+import { newPassword } from '../../bus/forms/shapes';
 import { book } from '../../navigation/book';
 
 export default class NewPassword extends Component {
@@ -18,10 +18,10 @@ export default class NewPassword extends Component {
         updatePasswordAsync: () => {},
     };
 
-    _submitPassword = (newPassword) => {
+    _submitPassword = (passwordData) => {
         const { updatePasswordAsync } = this.props;
 
-        updatePasswordAsync(newPassword);
+        updatePasswordAsync(passwordData);
     };
 
     render () {
@@ -29,10 +29,7 @@ export default class NewPassword extends Component {
 
         return (
             <Formik
-                initialValues = { {
-                    oldPassword: '',
-                    newPassword: '',
-                } }
+                initialValues = { newPassword.shape }
                 render = { (props) => {
                     const { isValid, touched, errors } = props;
 
@@ -82,7 +79,7 @@ export default class NewPassword extends Component {
                         </Form>
                     );
                 } }
-                validationSchema = { newPasswordSchema }
+                validationSchema = { newPassword.schema }
                 onSubmit = { this._submitPassword }
             />
         );
