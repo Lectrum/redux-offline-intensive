@@ -1,49 +1,26 @@
 // Core
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
-import photo1 from '../../../theme/assets/photos/1';
+import photo1 from '../../../theme/assets/photos/1.jpeg';
 
 // Instruments
 import Styles from './styles.m.css';
 
 @hot(module)
 export default class Gallery extends Component {
-    static defaultProps = {
-        // State
-        currentPhoto: 0,
-
-        // Actions
-        changePhoto: () => {},
-        photos:      [
-            {
-                url: photo1,
-            }
-        ],
-    };
-
-    _showNextPhoto = () => {
-        const { currentPhoto } = this.props;
-
-        this.props.changePhoto(currentPhoto + 1);
-    };
-
-    _showPrevPhoto = () => {
-        const { currentPhoto } = this.props;
-
-        this.props.changePhoto(currentPhoto - 1);
-    };
-
     render () {
-        const { currentPhoto, photos } = this.props;
-
-        const url = photos[currentPhoto].url;
+        const url = photo1;
 
         return (
             <section className = { Styles.gallery }>
                 <img src = { url } />
                 <div>
-                    <button onClick = { this._showPrevPhoto }>←</button>
-                    <button onClick = { this._showNextPhoto }>→</button>
+                    <button>←</button>
+                    <button value = '0'>1</button>
+                    <button value = '1'>2</button>
+                    <button value = '2'>3</button>
+                    <button value = '3'>4</button>
+                    <button>→</button>
                 </div>
             </section>
         );

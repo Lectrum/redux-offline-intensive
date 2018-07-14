@@ -1,14 +1,11 @@
 // Core
 import React, { Component } from 'react';
-import { Form } from 'react-redux-form';
+import { Formik, Form, Field } from 'formik';
 import cx from 'classnames';
 
 // Instruments
 import Styles from './styles.m.css';
-import { validateEmail, validateLength } from '../../instruments/validators';
-
-// Components
-import { Input } from '../../components';
+import { signupSchema } from '../../instruments';
 
 export default class SignupForm extends Component {
     static defaultProps = {
@@ -26,90 +23,91 @@ export default class SignupForm extends Component {
     render () {
         const { isFetching } = this.props;
 
-        const buttonStyle = cx(Styles.signupSubmit, {
-            [Styles.disabledButton]: isFetching,
-        });
-
-        const centeredWrapperStyle = cx(Styles.wrapper, Styles.centered);
-
         return (
-            <Form
-                className = { Styles.form }
-                model = 'forms.signup'
-                onSubmit = { this._submitSignupForm }>
-                <div className = { centeredWrapperStyle }>
-                    <div>
-                        <Input
-                            disabled = { isFetching }
-                            disabledStyle = { Styles.disabledInput }
-                            id = 'forms.signup.firstName'
-                            invalidStyle = { Styles.invalid }
-                            model = 'forms.signup.firstName'
-                            placeholder = 'Имя'
-                            type = 'text'
-                            validators = { {
-                                valid: (firstName) =>
-                                    !validateLength(firstName, 1),
-                            } }
-                        />
-                        <Input
-                            disabled = { isFetching }
-                            disabledStyle = { Styles.disabledInput }
-                            id = 'forms.signup.lastName'
-                            invalidStyle = { Styles.invalid }
-                            model = 'forms.signup.lastName'
-                            placeholder = 'Фамилия'
-                            type = 'text'
-                            validators = { {
-                                valid: (lastName) => !validateLength(lastName, 1),
-                            } }
-                        />
-                        <Input
-                            disabled = { isFetching }
-                            disabledStyle = { Styles.disabledInput }
-                            id = 'forms.signup.email'
-                            invalidStyle = { Styles.invalid }
-                            model = 'forms.signup.email'
-                            placeholder = 'Почта'
-                            type = 'text'
-                            validators = { {
-                                valid: (email) => validateEmail(email),
-                            } }
-                        />
-                        <Input
-                            disabled = { isFetching }
-                            disabledStyle = { Styles.disabledInput }
-                            id = 'forms.signup.password'
-                            invalidStyle = { Styles.invalid }
-                            model = 'forms.signup.password'
-                            placeholder = 'Пароль'
-                            type = 'password'
-                            validators = { {
-                                valid: (password) => !validateLength(password, 5),
-                            } }
-                        />
-                        <Input
-                            disabled = { isFetching }
-                            disabledStyle = { Styles.disabledInput }
-                            id = 'forms.signup.invite'
-                            invalidStyle = { Styles.invalid }
-                            model = 'forms.signup.invite'
-                            placeholder = 'Секретное слово'
-                            type = 'password'
-                            validators = { {
-                                valid: (invite) =>
-                                    !validateLength(invite, 12, 12),
-                            } }
-                        />
-                        <button
-                            className = { buttonStyle }
-                            disabled = { isFetching }
-                            type = 'submit'>
-                            {isFetching ? 'Загрузка...' : 'Создать аккаунт ✓'}
-                        </button>
-                    </div>
-                </div>
-            </Form>
+            <Formik
+                initialValues = { {
+                    firstName: '',
+                    lastName:  '',
+                    email:     '',
+                    password:  '',
+                    invite:    '',
+                } }
+                render = { (props) => {
+                    const { isValid, touched, errors } = props;
+
+                    const centeredWrapperStyle = cx(Styles.wrapper, Styles.centered, {
+                        [Styles.disabledInput]: isFetching,
+                    });
+                    const firstNameStyle = cx({
+                        [Styles.invalidInput]: !isValid && touched.firstName && errors.firstName,
+                    });
+                    const lastNameStyle = cx({
+                        [Styles.invalidInput]: !isValid && touched.lastName && errors.lastName,
+                    });
+                    const emailStyle = cx({
+                        [Styles.invalidInput]: !isValid && touched.email && errors.email,
+                    });
+                    const passwordStyle = cx({
+                        [Styles.invalidInput]: !isValid && touched.password && errors.password,
+                    });
+                    const inviteStyle = cx({
+                        [Styles.invalidInput]: !isValid && touched.invite && errors.invite,
+                    });
+                    const buttonStyle = cx(Styles.signupSubmit, {
+                        [Styles.disabledButton]: isFetching,
+                    });
+                    const buttonMessage = isFetching ? 'Загрузка...' : 'Создать аккаунт ✓';
+
+                    return (
+                        <Form className = { Styles.form }>
+                            <div className = { centeredWrapperStyle }>
+                                <div>
+                                    <Field
+                                        className = { firstNameStyle }
+                                        disabled = { isFetching }
+                                        name = 'firstName'
+                                        placeholder = 'Имя'
+                                        type = 'text'
+                                    />
+                                    <Field
+                                        className = { lastNameStyle }
+                                        disabled = { isFetching }
+                                        name = 'lastName'
+                                        placeholder = 'Фамилия'
+                                        type = 'text'
+                                    />
+                                    <Field
+                                        className = { emailStyle }
+                                        disabled = { isFetching }
+                                        name = 'email'
+                                        placeholder = 'Почта'
+                                        type = 'email'
+                                    />
+                                    <Field
+                                        className = { passwordStyle }
+                                        disabled = { isFetching }
+                                        name = 'password'
+                                        placeholder = 'Пароль'
+                                        type = 'password'
+                                    />
+                                    <Field
+                                        className = { inviteStyle }
+                                        disabled = { isFetching }
+                                        name = 'invite'
+                                        placeholder = 'Секретное слово'
+                                        type = 'password'
+                                    />
+                                    <button className = { buttonStyle } disabled = { isFetching } type = 'submit'>
+                                        {buttonMessage}
+                                    </button>
+                                </div>
+                            </div>
+                        </Form>
+                    );
+                } }
+                validationSchema = { signupSchema }
+                onSubmit = { this._submitSignupForm }
+            />
         );
     }
 }

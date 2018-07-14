@@ -1,3 +1,5 @@
+@import '../../../theme/palette';
+
 .gallery {
     display: flex;
     justify-content: center;
@@ -5,12 +7,19 @@
     align-items: center;
     min-height: 100vh;
     background-color: var(--paletteColor15);
-    padding-top: 1%;
     padding: 15px 50px;
 
     & img {
-        width: 100%;
+        width: 80%;
         user-select: none;
+        box-shadow: 0 2px 3px 1px color-mod(var(--paletteColor1) alpha(80%));
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: box-shadow 0.3s ease;
+
+        &:hover {
+            box-shadow: 0 2px 3px 1px color-mod(wheat alpha(30%));
+        }
     }
 
     & div {

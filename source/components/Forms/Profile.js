@@ -44,12 +44,10 @@ export default class Profile extends Component {
         const buttonStyle = cx(Styles.loginSubmit, {
             [Styles.disabledButton]: isFetching,
         });
+        const buttonMessage = isFetching ? 'Загрузка...' : 'Обновить профиль';
 
         return (
-            <Form
-                className = { Styles.form }
-                model = 'forms.user.profile'
-                onSubmit = { this._submitUserInfo }>
+            <Form className = { Styles.form } model = 'forms.user.profile' onSubmit = { this._submitUserInfo }>
                 <div className = { Styles.wrapper }>
                     <div>
                         <h1>Привет, {profile.get('firstName')}</h1>
@@ -64,9 +62,9 @@ export default class Profile extends Component {
                         <label htmlFor = 'file'>Выбери новый аватар</label>
                         <Input
                             disabled = { isFetching }
-                            disabledStyle = { Styles.disabledInput }
+                            disabledStyle = { Styles.disabledInputRedux }
                             id = 'forms.user.profile.firstName'
-                            invalidStyle = { Styles.invalid }
+                            invalidStyle = { Styles.invalidInput }
                             model = 'forms.user.profile.firstName'
                             placeholder = 'Имя'
                             validators = { {
@@ -75,20 +73,17 @@ export default class Profile extends Component {
                         />
                         <Input
                             disabled = { isFetching }
-                            disabledStyle = { Styles.disabledInput }
+                            disabledStyle = { Styles.disabledInputRedux }
                             id = 'forms.user.profile.lastName'
-                            invalidStyle = { Styles.invalid }
+                            invalidStyle = { Styles.invalidInput }
                             model = 'forms.user.profile.lastName'
                             placeholder = 'Фамилия'
                             validators = { {
                                 valid: (lastName) => !validateLength(lastName, 1),
                             } }
                         />
-                        <button
-                            className = { buttonStyle }
-                            disabled = { isFetching }
-                            type = 'submit'>
-                            {isFetching ? 'Загрузкм...' : 'Обновить профиль'}
+                        <button className = { buttonStyle } disabled = { isFetching } type = 'submit'>
+                            {isFetching ? 'Загрузка...' : 'Обновить профиль'}
                         </button>
                     </div>
                     <Link to = { book.newPassword }>сменить пароль →</Link>

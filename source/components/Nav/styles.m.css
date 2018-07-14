@@ -4,13 +4,13 @@
     display: flex;
     position: sticky;
     top: 0;
-    z-index: 1;
     align-items: center;
     justify-content: space-between;
     height: 42px;
     border-bottom: var(--paletteColor12);
     background-color: var(--paletteColor6);
     padding: 0 5px;
+    z-index: 1;
 
     & div {
         display: flex;

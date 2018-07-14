@@ -2,13 +2,16 @@
 import React, { Component } from 'react';
 
 // Components
-import { Catcher, LoginForm } from '../components';
+import { Catcher, Spinner, Nav, LoginForm, Notification } from '../components';
 
 export default class Login extends Component {
     render () {
         return (
             <Catcher>
+                <Spinner />
+                <Nav />
                 <LoginForm />
+                <Notification />
             </Catcher>
         );
     }

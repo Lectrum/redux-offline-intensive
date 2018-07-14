@@ -1,67 +1,64 @@
 // Core
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
+import { Formik, Form, Field } from 'formik';
 
 // Instruments
 import Styles from './styles.m.css';
+import { composerSchema } from '../../instruments';
 
 export default class Composer extends Component {
-    state = {
-        comment: '',
+    formikForm = createRef();
+
+    _submitForm = (formData, actions) => {
+        this._createPost(formData);
+        actions.resetForm();
     };
 
-    _submitComment = (event) => {
-        event.preventDefault();
-        this._createPost();
-    };
-
-    _createPost = () => {
-        const { comment } = this.state;
-
+    _createPost = ({ comment }) => {
         if (!comment) {
-            return;
+            return null;
         }
 
         this.props.actions.createPostAsync(comment);
-
-        this.setState({
-            comment: '',
-        });
     };
 
-    _handleTextareaChange = (event) => {
-        const { value: comment } = event.target;
-
-        this.setState({
-            comment,
-        });
-    };
-
-    _handleTextareaKeyPress = (event) => {
+    _submitFormOnEnter = (event) => {
         if (event.key === 'Enter') {
             event.preventDefault();
-            this._createPost();
+
+            this.formikForm.current.submitForm();
         }
     };
 
     render () {
-        const { comment } = this.state;
         const { profile } = this.props;
 
         return (
-            <section className = { Styles.composer }>
-                <img src = { profile.get('avatar') } />
-                <form onSubmit = { this._submitComment }>
-                    <textarea
-                        placeholder = { `What's on your mind, ${profile.get(
-                            'firstName',
-                        )}?` }
-                        value = { comment }
-                        onChange = { this._handleTextareaChange }
-                        onKeyPress = { this._handleTextareaKeyPress }
-                    />
-                    <input type = 'submit' value = 'Запостить' />
-                </form>
-            </section>
+            <Formik
+                initialValues = { {
+                    comment: '',
+                } }
+                ref = { this.formikForm }
+                render = { () => {
+                    return (
+                        <section className = { Styles.composer }>
+                            <img src = { profile.get('avatar') } />
+                            <Form>
+                                <Field
+                                    component = 'textarea'
+                                    name = 'comment'
+                                    placeholder = { `What's on your mind, ${profile.get('firstName')}?` }
+                                    type = 'text'
+                                    onKeyPress = { this._submitFormOnEnter }
+                                />
+                                <input type = 'submit' value = 'Запостить' />
+                            </Form>
+                        </section>
+                    );
+                } }
+                validationSchema = { composerSchema }
+                onSubmit = { this._submitForm }
+            />
         );
     }
 }

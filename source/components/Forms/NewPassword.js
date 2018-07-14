@@ -1,16 +1,13 @@
 // Core
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Form } from 'react-redux-form';
+import { Formik, Form, Field } from 'formik';
 import cx from 'classnames';
 
 // Instruments
 import Styles from './styles.m.css';
-import { validateLength } from '../../instruments/validators';
+import { newPasswordSchema } from '../../instruments';
 import { book } from '../../navigation/book';
-
-// Components
-import { Input } from '../../components';
 
 export default class NewPassword extends Component {
     static defaultProps = {
@@ -30,57 +27,64 @@ export default class NewPassword extends Component {
     render () {
         const { isFetching } = this.props;
 
-        const buttonStyle = cx(Styles.loginSubmit, {
-            [Styles.disabledButton]: isFetching,
-        });
-
-        const newPasswordFormWrapperStyles = cx(
-            Styles.newPasswordFormWrapper,
-            Styles.wrapper,
-        );
-
         return (
-            <Form
-                className = { Styles.form }
-                model = 'forms.user.password'
-                onSubmit = { this._submitPassword }>
-                <div className = { newPasswordFormWrapperStyles }>
-                    <div>
-                        <Input
-                            disabled = { isFetching }
-                            disabledStyle = { Styles.disabledInput }
-                            id = 'forms.user.password.oldPassword'
-                            invalidStyle = { Styles.invalid }
-                            model = 'forms.user.password.oldPassword'
-                            placeholder = 'Старый пароль'
-                            type = 'password'
-                            validators = { {
-                                valid: (password) => !validateLength(password, 5),
-                            } }
-                        />
-                        <Input
-                            disabled = { isFetching }
-                            disabledStyle = { Styles.disabledInput }
-                            id = 'forms.user.password.newPassword'
-                            invalidStyle = { Styles.invalid }
-                            model = 'forms.user.password.newPassword'
-                            placeholder = 'Новый пароль'
-                            type = 'password'
-                            validators = { {
-                                valid: (password) => !validateLength(password, 5),
-                            } }
-                        />
-                        <button
-                            className = { buttonStyle }
-                            disabled = { isFetching }
-                            type = 'submit'
-                            onClick = { this._changePassword }>
-                            {isFetching ? 'Загрузка...' : 'Сменить пароль'}
-                        </button>
-                    </div>
-                    <Link to = { book.profile }>← назад</Link>
-                </div>
-            </Form>
+            <Formik
+                initialValues = { {
+                    oldPassword: '',
+                    newPassword: '',
+                } }
+                render = { (props) => {
+                    const { isValid, touched, errors } = props;
+
+                    const newPasswordFormWrapperStyles = cx(Styles.newPasswordFormWrapper, Styles.wrapper, {
+                        [Styles.disabledInput]: isFetching,
+                    });
+                    const oldPasswordStyle = cx({
+                        [Styles.invalidInput]: !isValid && touched.oldPassword && errors.oldPassword,
+                    });
+                    const newPasswordStyle = cx({
+                        [Styles.invalidInput]: !isValid && touched.newPassword && errors.newPassword,
+                    });
+
+                    const buttonStyle = cx(Styles.loginSubmit, {
+                        [Styles.disabledButton]: isFetching,
+                    });
+                    const buttonMessage = isFetching ? 'Загрузка...' : 'Сменить пароль';
+
+                    return (
+                        <Form className = { Styles.form }>
+                            <div className = { newPasswordFormWrapperStyles }>
+                                <div>
+                                    <Field
+                                        className = { oldPasswordStyle }
+                                        disabled = { isFetching }
+                                        name = 'oldPassword'
+                                        placeholder = 'Старый пароль'
+                                        type = 'password'
+                                    />
+                                    <Field
+                                        className = { newPasswordStyle }
+                                        disabled = { isFetching }
+                                        name = 'newPassword'
+                                        placeholder = 'Новый пароль'
+                                        type = 'password'
+                                    />
+                                    <button
+                                        className = { buttonStyle }
+                                        disabled = { isFetching }
+                                        type = 'submit'
+                                        onClick = { this._changePassword }>
+                                        {buttonMessage}
+                                    </button>
+                                </div>
+                                <Link to = { book.profile }>← назад</Link>
+                            </div>
+                        </Form>
+                    );
+                } }
+                validationSchema = { newPasswordSchema }
+                onSubmit = { this._submitPassword }
+            />
         );
     }
 }

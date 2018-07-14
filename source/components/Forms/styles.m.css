@@ -22,8 +22,8 @@
             justify-content: space-between;
 
             & h1 {
-                font-size: 28px;
-                font-weight: 300;
+                font-size: 45px;
+                font-weight: 700;
             }
 
             & img {
@@ -65,21 +65,13 @@
                 }
             }
 
-            & .invalid {
+            & .invalidInput {
                 border: 1px solid red;
 
                 &:focus {
                     border: 1px solid crimson;
                     box-shadow: 0 5px 6px -6px var(--paletteColor25);
                 }
-            }
-
-            & .disabledInput {
-                background-color: var(--paletteColor3);
-            }
-
-            & .disabledButton {
-                background-color: var(--paletteColor7);
             }
 
             & .rememberMe {
@@ -107,8 +99,7 @@
                 cursor: pointer;
                 font-size: 18px;
                 font-weight: 600;
-                transition: background-color 0.2s ease-out,
-                    border-color 0.2s ease-out, box-shadow 0.3s ease;
+                transition: background-color 0.2s ease-out, border-color 0.2s ease-out, box-shadow 0.3s ease;
             }
 
             & .loginSubmit,
@@ -124,8 +115,7 @@
 
             & .signupSubmit {
                 border: 1px solid;
-                border-color: var(--paletteColor18) var(--paletteColor18)
-                    var(--paletteColor19);
+                border-color: var(--paletteColor18) var(--paletteColor18) var(--paletteColor19);
                 background: var(--gradient1);
                 background-color: var(--paletteColor22);
                 box-shadow: inset 0 1px 1px var(--paletteColor20);
@@ -155,8 +145,7 @@
                     border: 1px solid var(--paletteColor24);
                     cursor: pointer;
                     margin-bottom: 20px;
-                    transition: background-color 0.2s ease-out,
-                        border-color 0.2s ease-out, box-shadow 0.3s ease;
+                    transition: background-color 0.2s ease-out, border-color 0.2s ease-out, box-shadow 0.3s ease;
                 }
 
                 &:focus + label,
@@ -191,6 +180,22 @@
         padding-bottom: 0;
     }
 
+    & .disabledInput {
+        & div {
+            & input {
+                background-color: var(--paletteColor3);
+            }
+        }
+    }
+
+    & .disabledInputRedux {
+        background-color: var(--paletteColor3);
+    }
+
+    & .disabledButton {
+        background-color: var(--paletteColor7);
+    }
+
     & a {
         display: flex;
         justify-content: center;
@@ -204,8 +209,7 @@
         cursor: pointer;
         font-size: 18px;
         font-weight: 500;
-        transition: background-color 0.2s ease-out, border-color 0.2s ease-out,
-            box-shadow 0.3s ease;
+        transition: background-color 0.2s ease-out, border-color 0.2s ease-out, box-shadow 0.3s ease;
         background-color: var(--paletteColor6);
         text-decoration: none;
 
