@@ -1,6 +1,6 @@
 {
     "name": "redux-intensive-boilerplate",
-    "version": "1.7.0",
+    "version": "1.7.1",
     "author": "Dima Vakatsiienko <d.vakatsiienko@lectrum.io>",
     "private": true,
     "scripts": {
