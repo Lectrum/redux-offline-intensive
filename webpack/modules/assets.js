@@ -58,7 +58,7 @@ export const setupHtml = () => ({
         new HtmlWebpackPlugin({
             inject:   false,
             template: HtmlWebpackTemplate,
-            title:    'Интенсив по Redux: Facebook',
+            title:    'Интенсив по Redux',
             favicon:  `${statics}/favicon/Lectrum-favicon-512x512.png`,
             meta:     [
                 {
