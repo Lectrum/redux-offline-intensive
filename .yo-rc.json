@@ -1,0 +1,7 @@
+{
+  "@lectrum/generator-ui": {
+    "isInitialized": false,
+    "repositoryOwner": "lectrum",
+    "repositoryName": "redux-intensive-boilerplate"
+  }
+}

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1529308212991" clover="3.2.0">
+  <project timestamp="1529308212991" name="All files">
+    <metrics statements="167" coveredstatements="105" conditionals="45" coveredconditionals="33" methods="41" coveredmethods="36" elements="253" coveredelements="174" complexity="0" loc="167" ncloc="167" packages="8" files="24" classes="24">
+      <package name="bus.auth">
+        <metrics statements="12" coveredstatements="12" conditionals="5" coveredconditionals="5" methods="4" coveredmethods="4"/>
+        <file name="actions.js" path="/Users/furthur/Lectrum/intensives/redux-intensive-boilerplate/source/bus/auth/actions.js">
+          <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+          <line num="4" count="6" type="stmt"/>
+          <line num="5" count="9" type="stmt"/>
+          <line num="8" count="6" type="stmt"/>
+          <line num="11" count="2" type="stmt"/>
+        </file>
+        <file name="reducer.js" path="/Users/furthur/Lectrum/intensives/redux-intensive-boilerplate/source/bus/auth/reducer.js">
+          <metrics statements="7" coveredstatements="7" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="12" count="2" type="cond" truecount="1" falsecount="0"/>
+          <line num="13" count="7" type="cond" truecount="4" falsecount="0"/>
+          <line num="15" count="1" type="stmt"/>
+          <line num="18" count="1" type="stmt"/>
+          <line num="21" count="1" type="stmt"/>
+          <line num="24" count="4" type="stmt"/>
+        </file>
+        <file name="types.js" path="/Users/furthur/Lectrum/intensives/redux-intensive-boilerplate/source/bus/auth/types.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="2" count="6" type="stmt"/>
+        </file>
+      </package>
+      <package name="bus.auth.saga">
+        <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="11" coveredmethods="11"/>
+        <file name="asyncActions.js" path="/Users/furthur/Lectrum/intensives/redux-intensive-boilerplate/source/bus/auth/saga/asyncActions.js">
+          <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
+          <line num="4" count="5" type="stmt"/>
+          <line num="5" count="1" type="stmt"/>
+          <line num="8" count="2" type="stmt"/>
+          <line num="12" count="3" type="stmt"/>
+          <line num="15" count="1" type="stmt"/>
+          <line num="19" count="1" type="stmt"/>
+        </file>
+        <file name="asyncTypes.js" path="/Users/furthur/Lectrum/intensives/redux-intensive-boilerplate/source/bus/auth/saga/asyncTypes.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="1" count="5" type="stmt"/>
+        </file>
+        <file name="watchers.js" path="/Users/furthur/Lectrum/intensives/redux-intensive-boilerplate/source/bus/auth/saga/watchers.js">
+          <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
+          <line num="15" count="1" type="stmt"/>
+          <line num="18" count="1" type="stmt"/>
+          <line num="21" count="1" type="stmt"/>
+          <line num="24" count="1" type="stmt"/>
+          <line num="27" count="1" type="stmt"/>
+          <line num="31" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="bus.auth.saga.workers">
+        <metrics statements="69" coveredstatements="39" conditionals="16" coveredconditionals="11" methods="5" coveredmethods="3"/>
+        <file name="authenticate.js" path="/Users/furthur/Lectrum/intensives/redux-intensive-boilerplate/source/bus/auth/saga/workers/authenticate.js">
+          <metrics statements="16" coveredstatements="16" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+          <line num="12" count="3" type="stmt"/>
+          <line num="13" count="3" type="stmt"/>
+          <line num="15" count="3" type="stmt"/>
+          <line num="17" count="3" type="stmt"/>
+          <line num="19" count="3" type="cond" truecount="2" falsecount="0"/>
+          <line num="20" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="21" count="1" type="stmt"/>
+          <line num="23" count="1" type="stmt"/>
+          <line num="25" count="1" type="stmt"/>
+          <line num="28" count="1" type="stmt"/>
+          <line num="31" count="1" type="stmt"/>
+          <line num="34" count="1" type="stmt"/>
+          <line num="35" count="1" type="stmt"/>
+          <line num="37" count="1" type="stmt"/>
+          <line num="39" count="3" type="stmt"/>
+          <line num="40" count="3" type="stmt"/>
+        </file>
+        <file name="initialize.js" path="/Users/furthur/Lectrum/intensives/redux-intensive-boilerplate/source/bus/auth/saga/workers/initialize.js">
+          <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+          <line num="9" count="2" type="stmt"/>
+          <line num="12" count="2" type="stmt"/>
+          <line num="14" count="2" type="cond" truecount="4" falsecount="0"/>
+          <line num="15" count="1" type="stmt"/>
+          <line num="17" count="1" type="stmt"/>
+          <line num="20" count="1" type="stmt"/>
+        </file>
+        <file name="login.js" path="/Users/furthur/Lectrum/intensives/redux-intensive-boilerplate/source/bus/auth/saga/workers/login.js">
+          <metrics statements="17" coveredstatements="17" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
+          <line num="12" count="2" type="stmt"/>
+          <line num="13" count="2" type="stmt"/>
+          <line num="15" count="2" type="stmt"/>
+          <line num="17" count="2" type="stmt"/>
+          <line num="19" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="20" count="1" type="stmt"/>
+          <line num="23" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="24" count="1" type="stmt"/>
+          <line num="27" count="1" type="stmt"/>
+          <line num="32" count="1" type="stmt"/>
+          <line num="34" count="1" type="stmt"/>
+          <line num="37" count="1" type="stmt"/>
+          <line num="40" count="1" type="stmt"/>
+          <line num="41" count="1" type="stmt"/>
+          <line num="42" count="1" type="stmt"/>
+          <line num="44" count="1" type="stmt"/>
+          <line num="46" count="2" type="stmt"/>
+        </file>
+        <file name="logout.js" path="/Users/furthur/Lectrum/intensives/redux-intensive-boilerplate/source/bus/auth/saga/workers/logout.js">
+          <metrics statements="16" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="16" count="0" type="stmt"/>
+          <line num="17" count="0" type="stmt"/>
+          <line num="19" count="0" type="stmt"/>
+          <line num="21" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="22" count="0" type="stmt"/>
+          <line num="24" count="0" type="stmt"/>
+          <line num="27" count="0" type="stmt"/>
+          <line num="29" count="0" type="stmt"/>
+          <line num="31" count="0" type="stmt"/>
+          <line num="32" count="0" type="stmt"/>
+          <line num="33" count="0" type="stmt"/>
+          <line num="34" count="0" type="stmt"/>
+          <line num="35" count="0" type="stmt"/>
+          <line num="36" count="0" type="stmt"/>
+          <line num="37" count="0" type="stmt"/>
+          <line num="38" count="0" type="stmt"/>
+        </file>
+        <file name="signup.js" path="/Users/furthur/Lectrum/intensives/redux-intensive-boilerplate/source/bus/auth/saga/workers/signup.js">
+          <metrics statements="14" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="12" count="0" type="stmt"/>
+          <line num="13" count="0" type="stmt"/>
+          <line num="15" count="0" type="stmt"/>
+          <line num="17" count="0" type="stmt"/>
+          <line num="19" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="20" count="0" type="stmt"/>
+          <line num="23" count="0" type="stmt"/>
+          <line num="28" count="0" type="stmt"/>
+          <line num="29" count="0" type="stmt"/>
+          <line num="32" count="0" type="stmt"/>
+          <line num="35" count="0" type="stmt"/>
+          <line num="36" count="0" type="stmt"/>
+          <line num="38" count="0" type="stmt"/>
+          <line num="40" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="bus.profile">
+        <metrics statements="12" coveredstatements="12" conditionals="5" coveredconditionals="5" methods="4" coveredmethods="4"/>
+        <file name="actions.js" path="/Users/furthur/Lectrum/intensives/redux-intensive-boilerplate/source/bus/profile/actions.js">
+          <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+          <line num="4" count="5" type="stmt"/>
+          <line num="5" count="6" type="stmt"/>
+          <line num="9" count="2" type="stmt"/>
+          <line num="13" count="2" type="stmt"/>
+        </file>
+        <file name="reducer.js" path="/Users/furthur/Lectrum/intensives/redux-intensive-boilerplate/source/bus/profile/reducer.js">
+          <metrics statements="7" coveredstatements="7" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="14" count="2" type="cond" truecount="1" falsecount="0"/>
+          <line num="15" count="7" type="cond" truecount="4" falsecount="0"/>
+          <line num="17" count="1" type="stmt"/>
+          <line num="20" count="1" type="stmt"/>
+          <line num="23" count="1" type="stmt"/>
+          <line num="26" count="4" type="stmt"/>
+        </file>
+        <file name="types.js" path="/Users/furthur/Lectrum/intensives/redux-intensive-boilerplate/source/bus/profile/types.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="2" count="5" type="stmt"/>
+        </file>
+      </package>
+      <package name="bus.profile.saga">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="7"/>
+        <file name="asyncActions.js" path="/Users/furthur/Lectrum/intensives/redux-intensive-boilerplate/source/bus/profile/saga/asyncActions.js">
+          <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+          <line num="4" count="1" type="stmt"/>
+          <line num="5" count="1" type="stmt"/>
+          <line num="9" count="1" type="stmt"/>
+          <line num="13" count="1" type="stmt"/>
+        </file>
+        <file name="asyncTypes.js" path="/Users/furthur/Lectrum/intensives/redux-intensive-boilerplate/source/bus/profile/saga/asyncTypes.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="2" count="2" type="stmt"/>
+        </file>
+        <file name="watchers.js" path="/Users/furthur/Lectrum/intensives/redux-intensive-boilerplate/source/bus/profile/saga/watchers.js">
+          <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="14" count="1" type="stmt"/>
+          <line num="17" count="1" type="stmt"/>
+          <line num="21" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="bus.profile.saga.workers">
+        <metrics statements="32" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <file name="changePassword.js" path="/Users/furthur/Lectrum/intensives/redux-intensive-boilerplate/source/bus/profile/saga/workers/changePassword.js">
+          <metrics statements="10" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="12" count="0" type="stmt"/>
+          <line num="13" count="0" type="stmt"/>
+          <line num="15" count="0" type="stmt"/>
+          <line num="22" count="0" type="stmt"/>
+          <line num="24" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="25" count="0" type="stmt"/>
+          <line num="28" count="0" type="stmt"/>
+          <line num="29" count="0" type="stmt"/>
+          <line num="31" count="0" type="stmt"/>
+          <line num="33" count="0" type="stmt"/>
+        </file>
+        <file name="updateAvatar.js" path="/Users/furthur/Lectrum/intensives/redux-intensive-boilerplate/source/bus/profile/saga/workers/updateAvatar.js">
+          <metrics statements="13" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="12" count="0" type="stmt"/>
+          <line num="13" count="0" type="stmt"/>
+          <line num="15" count="0" type="stmt"/>
+          <line num="17" count="0" type="stmt"/>
+          <line num="19" count="0" type="stmt"/>
+          <line num="26" count="0" type="stmt"/>
+          <line num="28" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="29" count="0" type="stmt"/>
+          <line num="32" count="0" type="stmt"/>
+          <line num="33" count="0" type="stmt"/>
+          <line num="34" count="0" type="stmt"/>
+          <line num="36" count="0" type="stmt"/>
+          <line num="38" count="0" type="stmt"/>
+        </file>
+        <file name="updateName.js" path="/Users/furthur/Lectrum/intensives/redux-intensive-boilerplate/source/bus/profile/saga/workers/updateName.js">
+          <metrics statements="9" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="10" count="0" type="stmt"/>
+          <line num="11" count="0" type="stmt"/>
+          <line num="13" count="0" type="stmt"/>
+          <line num="20" count="0" type="stmt"/>
+          <line num="25" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="26" count="0" type="stmt"/>
+          <line num="29" count="0" type="stmt"/>
+          <line num="31" count="0" type="stmt"/>
+          <line num="33" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="bus.ui">
+        <metrics statements="16" coveredstatements="16" conditionals="9" coveredconditionals="9" methods="7" coveredmethods="7"/>
+        <file name="actions.js" path="/Users/furthur/Lectrum/intensives/redux-intensive-boilerplate/source/bus/ui/actions.js">
+          <metrics statements="6" coveredstatements="6" conditionals="3" coveredconditionals="3" methods="5" coveredmethods="5"/>
+          <line num="7" count="5" type="stmt"/>
+          <line num="8" count="21" type="stmt"/>
+          <line num="12" count="6" type="cond" truecount="1" falsecount="0"/>
+          <line num="18" count="5" type="cond" truecount="2" falsecount="0"/>
+          <line num="27" count="2" type="stmt"/>
+          <line num="30" count="2" type="stmt"/>
+        </file>
+        <file name="reducer.js" path="/Users/furthur/Lectrum/intensives/redux-intensive-boilerplate/source/bus/ui/reducer.js">
+          <metrics statements="9" coveredstatements="9" conditionals="6" coveredconditionals="6" methods="2" coveredmethods="2"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="13" count="2" type="cond" truecount="1" falsecount="0"/>
+          <line num="14" count="8" type="cond" truecount="5" falsecount="0"/>
+          <line num="16" count="1" type="stmt"/>
+          <line num="19" count="1" type="stmt"/>
+          <line num="22" count="1" type="stmt"/>
+          <line num="23" count="1" type="stmt"/>
+          <line num="27" count="1" type="stmt"/>
+          <line num="30" count="4" type="stmt"/>
+        </file>
+        <file name="types.js" path="/Users/furthur/Lectrum/intensives/redux-intensive-boilerplate/source/bus/ui/types.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="2" count="5" type="stmt"/>
+        </file>
+      </package>
+      <package name="init">
+        <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="3" methods="0" coveredmethods="0"/>
+        <file name="store.js" path="/Users/furthur/Lectrum/intensives/redux-intensive-boilerplate/source/init/store.js">
+          <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="3" methods="0" coveredmethods="0"/>
+          <line num="9" count="1" type="stmt"/>
+          <line num="10" count="1" type="cond" truecount="3" falsecount="1"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="17" count="1" type="stmt"/>
+        </file>
+      </package>
+    </metrics>
+  </project>
+</coverage>
