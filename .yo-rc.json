@@ -1,7 +1,8 @@
 {
   "@lectrum/generator-ui": {
+    "initialized": false,
+    "educational": true,
     "redux": true,
-    "isInitialized": false,
     "repositoryOwner": "lectrum",
     "repositoryName": "redux-intensive-boilerplate"
   }
