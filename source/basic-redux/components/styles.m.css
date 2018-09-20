@@ -1,4 +1,5 @@
-@import '../../../theme/breakpoints';
+@import '../../theme/palette';
+@import '../../theme/breakpoints';
 
 .gallery {
     display: flex;
@@ -10,7 +11,8 @@
 
     & img {
         max-width: calc(100vw - 30%);
-        max-height: 600px;
+        min-height: 200px;
+        max-height: calc(100vh - 200px);
         user-select: none;
         border: 2px solid wheat;
         margin-bottom: 10px;
@@ -29,7 +31,7 @@
             user-select: none;
             margin: 7px;
             border-radius: 7px;
-            font-size: 20px;
+            font-size: 28px;
             font-weight: 700;
             background-color: wheat;
             color: var(--paletteColor15);
@@ -37,12 +39,17 @@
                 color 0.1s ease-in;
             border: 1px solid black;
 
-            &:hover,
-            &.buttonActive {
+            &:hover {
                 color: wheat;
                 background-color: var(--paletteColor15);
                 border: 1px solid currentColor;
             }
+        }
+
+        & .buttonActive {
+            color: wheat;
+            background-color: color-mod(var(--paletteColor15) tint(10%));
+            border: 1px solid currentColor;
         }
     }
 

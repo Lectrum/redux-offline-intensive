@@ -1,6 +1,6 @@
 @import '../../theme/palette';
 
-.navigation {
+.header {
     display: flex;
     position: sticky;
     top: 0;

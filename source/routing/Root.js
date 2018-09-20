@@ -6,8 +6,8 @@ import { hot } from 'react-hot-loader';
 import { Feed } from '../pages';
 
 @hot(module)
-export default class App extends Component {
-    render () {
+export default class Root extends Component {
+    render() {
         return (
             <>
                 <Feed />

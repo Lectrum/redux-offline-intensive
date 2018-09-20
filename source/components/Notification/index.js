@@ -8,7 +8,7 @@ import { Map } from 'immutable';
 // Instruments
 import Styles from './styles.m.css';
 
-export default class Notification extends Component {
+export class Notification extends Component {
     static defaultProps = {
         // State
         notification: Map(),
@@ -21,7 +21,7 @@ export default class Notification extends Component {
         notificationIn: true,
     };
 
-    componentWillUnmount () {
+    componentWillUnmount() {
         const { hideNotification, notification } = this.props;
 
         hideNotification(notification.get('id'));
@@ -77,11 +77,11 @@ export default class Notification extends Component {
         const type = notification.get('type');
 
         return cx(Styles.notification, {
-            [Styles.info]: type === 'info',
+            [ Styles.info ]: type === 'info',
         });
     };
 
-    render () {
+    render() {
         const { notificationIn } = this.state;
 
         const computedMessage = this._getComputedMessage();

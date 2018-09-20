@@ -6,6 +6,6 @@ import { render } from 'react-dom';
 import './theme/init';
 
 // Intro
-import Gallery from './basic-redux';
+import { Gallery } from './basic-redux';
 
 render(<Gallery />, document.getElementById('app'));

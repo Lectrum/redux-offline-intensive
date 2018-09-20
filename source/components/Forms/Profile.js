@@ -8,12 +8,12 @@ import { Map } from 'immutable';
 // Instruments
 import Styles from './styles.m.css';
 import { validateLength } from '../../instruments/validators';
-import { book } from '../../navigation/book';
+import { book } from '../../routing/book';
 
 // Components
 import { Input } from '../../components';
 
-export default class Profile extends Component {
+export class ProfileForm extends Component {
     static defaultProps = {
         // State
         isFetching: false,
@@ -38,16 +38,19 @@ export default class Profile extends Component {
         updateNameAsync({ firstName, lastName });
     };
 
-    render () {
+    render() {
         const { profile, isFetching } = this.props;
 
         const buttonStyle = cx(Styles.loginSubmit, {
-            [Styles.disabledButton]: isFetching,
+            [ Styles.disabledButton ]: isFetching,
         });
         const buttonMessage = isFetching ? 'Загрузка...' : 'Обновить профиль';
 
         return (
-            <Form className = { Styles.form } model = 'forms.user.profile' onSubmit = { this._submitUserInfo }>
+            <Form
+                className = { Styles.form }
+                model = 'forms.user.profile'
+                onSubmit = { this._submitUserInfo }>
                 <div className = { Styles.wrapper }>
                     <div>
                         <h1>Привет, {profile.get('firstName')}</h1>
@@ -67,9 +70,9 @@ export default class Profile extends Component {
                             invalidStyle = { Styles.invalidInput }
                             model = 'forms.user.profile.firstName'
                             placeholder = 'Имя'
-                            validators = { {
+                            validators = {{
                                 valid: (name) => !validateLength(name, 1),
-                            } }
+                            }}
                         />
                         <Input
                             disabled = { isFetching }
@@ -78,11 +81,14 @@ export default class Profile extends Component {
                             invalidStyle = { Styles.invalidInput }
                             model = 'forms.user.profile.lastName'
                             placeholder = 'Фамилия'
-                            validators = { {
+                            validators = {{
                                 valid: (lastName) => !validateLength(lastName, 1),
-                            } }
+                            }}
                         />
-                        <button className = { buttonStyle } disabled = { isFetching } type = 'submit'>
+                        <button
+                            className = { buttonStyle }
+                            disabled = { isFetching }
+                            type = 'submit'>
                             {buttonMessage}
                         </button>
                     </div>

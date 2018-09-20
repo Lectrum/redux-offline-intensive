@@ -7,7 +7,7 @@ import cx from 'classnames';
 import Styles from './styles.m.css';
 import { signup } from '../../bus/forms/shapes';
 
-export default class SignupForm extends Component {
+export class SignupForm extends Component {
     static defaultProps = {
         // State
         isFetching: false,
@@ -20,85 +20,92 @@ export default class SignupForm extends Component {
         this.props.signupAsync(user);
     };
 
-    render () {
+    _getFormMarkup = (formikProps) => {
         const { isFetching } = this.props;
+        const { isValid, touched, errors } = formikProps;
 
+        const centeredWrapperStyle = cx(Styles.wrapper, Styles.centered, {
+            [ Styles.disabledInput ]: isFetching,
+        });
+        const firstNameStyle = cx({
+            [ Styles.invalidInput ]:
+                !isValid && touched.firstName && errors.firstName,
+        });
+        const lastNameStyle = cx({
+            [ Styles.invalidInput ]:
+                !isValid && touched.lastName && errors.lastName,
+        });
+        const emailStyle = cx({
+            [ Styles.invalidInput ]: !isValid && touched.email && errors.email,
+        });
+        const passwordStyle = cx({
+            [ Styles.invalidInput ]:
+                !isValid && touched.password && errors.password,
+        });
+        const inviteStyle = cx({
+            [ Styles.invalidInput ]: !isValid && touched.invite && errors.invite,
+        });
+        const buttonStyle = cx(Styles.signupSubmit, {
+            [ Styles.disabledButton ]: isFetching,
+        });
+        const buttonMessage = isFetching ? 'Загрузка...' : 'Создать аккаунт ✓';
+
+        return (
+            <Form className = { Styles.form }>
+                <div className = { centeredWrapperStyle }>
+                    <div>
+                        <Field
+                            className = { firstNameStyle }
+                            disabled = { isFetching }
+                            name = 'firstName'
+                            placeholder = 'Имя'
+                            type = 'text'
+                        />
+                        <Field
+                            className = { lastNameStyle }
+                            disabled = { isFetching }
+                            name = 'lastName'
+                            placeholder = 'Фамилия'
+                            type = 'text'
+                        />
+                        <Field
+                            className = { emailStyle }
+                            disabled = { isFetching }
+                            name = 'email'
+                            placeholder = 'Почта'
+                            type = 'email'
+                        />
+                        <Field
+                            className = { passwordStyle }
+                            disabled = { isFetching }
+                            name = 'password'
+                            placeholder = 'Пароль'
+                            type = 'password'
+                        />
+                        <Field
+                            className = { inviteStyle }
+                            disabled = { isFetching }
+                            name = 'invite'
+                            placeholder = 'Секретное слово'
+                            type = 'password'
+                        />
+                        <button
+                            className = { buttonStyle }
+                            disabled = { isFetching }
+                            type = 'submit'>
+                            {buttonMessage}
+                        </button>
+                    </div>
+                </div>
+            </Form>
+        );
+    };
+
+    render() {
         return (
             <Formik
                 initialValues = { signup.shape }
-                render = { (props) => {
-                    const { isValid, touched, errors } = props;
-
-                    const centeredWrapperStyle = cx(Styles.wrapper, Styles.centered, {
-                        [Styles.disabledInput]: isFetching,
-                    });
-                    const firstNameStyle = cx({
-                        [Styles.invalidInput]: !isValid && touched.firstName && errors.firstName,
-                    });
-                    const lastNameStyle = cx({
-                        [Styles.invalidInput]: !isValid && touched.lastName && errors.lastName,
-                    });
-                    const emailStyle = cx({
-                        [Styles.invalidInput]: !isValid && touched.email && errors.email,
-                    });
-                    const passwordStyle = cx({
-                        [Styles.invalidInput]: !isValid && touched.password && errors.password,
-                    });
-                    const inviteStyle = cx({
-                        [Styles.invalidInput]: !isValid && touched.invite && errors.invite,
-                    });
-                    const buttonStyle = cx(Styles.signupSubmit, {
-                        [Styles.disabledButton]: isFetching,
-                    });
-                    const buttonMessage = isFetching ? 'Загрузка...' : 'Создать аккаунт ✓';
-
-                    return (
-                        <Form className = { Styles.form }>
-                            <div className = { centeredWrapperStyle }>
-                                <div>
-                                    <Field
-                                        className = { firstNameStyle }
-                                        disabled = { isFetching }
-                                        name = 'firstName'
-                                        placeholder = 'Имя'
-                                        type = 'text'
-                                    />
-                                    <Field
-                                        className = { lastNameStyle }
-                                        disabled = { isFetching }
-                                        name = 'lastName'
-                                        placeholder = 'Фамилия'
-                                        type = 'text'
-                                    />
-                                    <Field
-                                        className = { emailStyle }
-                                        disabled = { isFetching }
-                                        name = 'email'
-                                        placeholder = 'Почта'
-                                        type = 'email'
-                                    />
-                                    <Field
-                                        className = { passwordStyle }
-                                        disabled = { isFetching }
-                                        name = 'password'
-                                        placeholder = 'Пароль'
-                                        type = 'password'
-                                    />
-                                    <Field
-                                        className = { inviteStyle }
-                                        disabled = { isFetching }
-                                        name = 'invite'
-                                        placeholder = 'Секретное слово'
-                                        type = 'password'
-                                    />
-                                    <button className = { buttonStyle } disabled = { isFetching } type = 'submit'>
-                                        {buttonMessage}
-                                    </button>
-                                </div>
-                            </div>
-                        </Form>
-                    );
-                } }
+                render = { this._getFormMarkup }
                 validationSchema = { signup.schema }
                 onSubmit = { this._submitSignupForm }
             />

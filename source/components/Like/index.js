@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 // Instruments
 import Styles from './styles.m.css';
 
-export default class Like extends Component {
+export class Like extends Component {
     state = {
         showLikers: false,
     };
@@ -45,7 +45,8 @@ export default class Like extends Component {
                 {likes.map((like) => (
                     <li key = { like.get('id') }>{`${like.get(
                         'firstName',
-                    )} ${like.get('lastName')}`}</li>
+                    )} ${like.get('lastName')}`}
+                    </li>
                 ))}
             </ul>
         ) : null;
@@ -65,7 +66,7 @@ export default class Like extends Component {
                     : likes.size;
     };
 
-    render () {
+    render() {
         const likedByMe = this._getLikedByMe();
 
         const likeStyles = likedByMe
@@ -77,7 +78,9 @@ export default class Like extends Component {
 
         return (
             <section className = { Styles.like }>
-                <span className = { likeStyles } onClick = { this._likePost }>
+                <span
+                    className = { likeStyles }
+                    onClick = { this._likePost }>
                     Like
                 </span>
                 <div>

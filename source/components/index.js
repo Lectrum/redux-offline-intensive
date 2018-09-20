@@ -1,31 +1,14 @@
-import Catcher from './Catcher';
-import Composer from './Composer';
-import LoginForm from './Forms/Login';
-import NewPasswordForm from './Forms/NewPassword';
-import ProfileForm from './Forms/Profile';
-import SignupForm from './Forms/Signup';
-import Input from './Input';
-import Like from './Like';
-import Loading from './Loading';
-import Nav from './Nav';
-import Notification from './Notification';
-import Post from './Post';
-import Spinner from './Spinner';
-import Posts from './Posts';
-
-export {
-    Catcher,
-    Composer,
-    LoginForm,
-    NewPasswordForm,
-    ProfileForm,
-    SignupForm,
-    Input,
-    Like,
-    Loading,
-    Nav,
-    Notification,
-    Post,
-    Spinner,
-    Posts
-};
+export { Catcher } from './Catcher';
+export { Composer } from './Composer';
+export { LoginForm } from './Forms/Login';
+export { NewPasswordForm } from './Forms/NewPassword';
+export { ProfileForm } from './Forms/Profile';
+export { SignupForm } from './Forms/Signup';
+export { Input } from './Input';
+export { Like } from './Like';
+export { Loading } from './Loading';
+export { Header } from './Header';
+export { Notification } from './Notification';
+export { Post } from './Post';
+export { Spinner } from './Spinner';
+export { Posts } from './Posts';

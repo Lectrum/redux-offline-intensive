@@ -2,14 +2,20 @@
 import React, { Component } from 'react';
 
 // Components
-import { Catcher, Spinner, Nav, NewPasswordForm, Notification } from '../components';
+import {
+    Catcher,
+    Spinner,
+    Header,
+    NewPasswordForm,
+    Notification,
+} from '../components';
 
-export default class NewPassword extends Component {
-    render () {
+export class NewPassword extends Component {
+    render() {
         return (
             <Catcher>
                 <Spinner />
-                <Nav />
+                <Header />
                 <NewPasswordForm />
                 <Notification />
             </Catcher>

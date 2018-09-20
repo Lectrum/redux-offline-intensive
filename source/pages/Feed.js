@@ -2,14 +2,14 @@
 import React, { Component } from 'react';
 
 // Components
-import { Catcher, Spinner, Nav, Posts, Notification } from '../components';
+import { Catcher, Spinner, Header, Posts, Notification } from '../components';
 
-export default class Feed extends Component {
-    render () {
+export class Feed extends Component {
+    render() {
         return (
             <Catcher>
                 <Spinner />
-                <Nav />
+                <Header />
                 <Posts />
                 <Notification />
             </Catcher>

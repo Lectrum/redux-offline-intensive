@@ -8,10 +8,10 @@
 
 <div align="center">
     <!-- Package version -->
-    <img src="https://img.shields.io/github/package-json/v/lectrum/redux-intensive-boilerplate.svg?longCache=true&style=flat-square"
+    <img src="https://img.shields.io/github/package-json/v/lectrum/redux-intensive.svg?longCache=true&style=flat-square"
         alt="Package version" />
     <!-- Last commit -->
-    <img src="https://img.shields.io/github/last-commit/lectrum/redux-intensive-boilerplate.svg?longCache=true&style=flat-square" alt="Last commit"
+    <img src="https://img.shields.io/github/last-commit/lectrum/redux-intensive.svg?longCache=true&style=flat-square" alt="Last commit"
     />
     <!-- Dependencies -->
     <img src="https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg?longCache=true&style=flat-square" alt="Dependencies"
@@ -72,13 +72,13 @@ npm install -g yo @lectrum/generator-ui
 7. Склонируй этот проект:
 
 ```bash
-git clone https://github.com/lectrum/redux-intensive-boilerplate.git
+git clone https://github.com/lectrum/redux-intensive.git
 ```
 
 8. Перейди в проект, выполнив команду:
 
 ```bash
-cd redux-intensive-boilerplate
+cd redux-intensive
 ```
 
 9. В терминале, находясь в директории с текущим проектом, выполни команду:

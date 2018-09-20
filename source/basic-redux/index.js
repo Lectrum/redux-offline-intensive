@@ -1,4 +1,2 @@
 // Components
-import Gallery from './components/Gallery';
-
-export default Gallery;
+export { Gallery } from './components/Gallery';

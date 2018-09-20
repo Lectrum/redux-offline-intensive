@@ -2,13 +2,13 @@
 import React from 'react';
 import { Control } from 'react-redux-form';
 
-const Input = (props) => {
+export const Input = (props) => {
     const { disabledStyle, invalidStyle, ...restProps } = props;
 
     return (
         <Control.text
             { ...restProps }
-            mapProps = { {
+            mapProps = {{
                 className: (input) => {
                     if (props.disabled) {
                         return disabledStyle;
@@ -17,9 +17,7 @@ const Input = (props) => {
                         return invalidStyle;
                     }
                 },
-            } }
+            }}
         />
     );
 };
-
-export default Input;

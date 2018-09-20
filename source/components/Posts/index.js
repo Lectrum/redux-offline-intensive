@@ -10,7 +10,7 @@ import { mockedProfile } from '../../instruments/mockedData';
 // Components
 import { Composer, Catcher, Post } from '../../components';
 
-export default class Posts extends Component {
+export class Posts extends Component {
     static defaultProps = {
         // State
         posts:   List(),
@@ -30,13 +30,13 @@ export default class Posts extends Component {
         },
     };
 
-    componentDidMount () {
+    componentDidMount() {
         const { actions } = this.props;
 
         actions.fetchPostsAsync();
     }
 
-    render () {
+    render() {
         const { actions, posts, profile } = this.props;
 
         const postsJSX = posts.map((post) => {
@@ -57,7 +57,10 @@ export default class Posts extends Component {
 
         return (
             <section className = { Styles.posts }>
-                <Composer actions = { actions } profile = { profile } />
+                <Composer
+                    actions = { actions }
+                    profile = { profile }
+                />
                 <FlipMove>{postsJSX}</FlipMove>
             </section>
         );

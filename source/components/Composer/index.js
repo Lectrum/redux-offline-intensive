@@ -6,7 +6,7 @@ import { Formik, Form, Field } from 'formik';
 import Styles from './styles.m.css';
 import { composer } from '../../bus/forms/shapes';
 
-export default class Composer extends Component {
+export class Composer extends Component {
     formikForm = createRef();
 
     _submitForm = (formData, actions) => {
@@ -30,7 +30,7 @@ export default class Composer extends Component {
         }
     };
 
-    render () {
+    render() {
         const { profile } = this.props;
 
         return (
@@ -45,11 +45,16 @@ export default class Composer extends Component {
                                 <Field
                                     component = 'textarea'
                                     name = 'comment'
-                                    placeholder = { `What's on your mind, ${profile.get('firstName')}?` }
+                                    placeholder = { `What's on your mind, ${profile.get(
+                                        'firstName',
+                                    )}?` }
                                     type = 'text'
                                     onKeyPress = { this._submitFormOnEnter }
                                 />
-                                <input type = 'submit' value = 'Запостить' />
+                                <input
+                                    type = 'submit'
+                                    value = 'Запостить'
+                                />
                             </Form>
                         </section>
                     );
