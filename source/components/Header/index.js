@@ -5,7 +5,7 @@ import cx from 'classnames';
 
 // Instruments
 import Styles from './styles.m.css';
-import { book } from '../../routing/book';
+import { book } from '../../routes/book';
 import { mockedProfile } from '../../instruments/mockedData';
 
 @withRouter

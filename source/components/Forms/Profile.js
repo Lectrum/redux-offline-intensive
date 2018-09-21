@@ -8,7 +8,7 @@ import { Map } from 'immutable';
 // Instruments
 import Styles from './styles.m.css';
 import { validateLength } from '../../instruments/validators';
-import { book } from '../../routing/book';
+import { book } from '../../routes/book';
 
 // Components
 import { Input } from '../../components';

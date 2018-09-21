@@ -7,7 +7,7 @@ import cx from 'classnames';
 // Instruments
 import Styles from './styles.m.css';
 import { newPassword } from '../../bus/forms/shapes';
-import { book } from '../../routing/book';
+import { book } from '../../routes/book';
 
 export class NewPasswordForm extends Component {
     static defaultProps = {
