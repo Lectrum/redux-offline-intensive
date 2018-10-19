@@ -1,6 +1,6 @@
 {
-    "name": "redux-intensive",
-    "version": "2.1.0",
+    "name": "redux-offline-intensive",
+    "version": "3.1.0",
     "author": "Dima Vakatsiienko <dvakatsiienko@lectrum.io>",
     "private": true,
     "dependencies": {
