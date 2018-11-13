@@ -3,7 +3,6 @@
     "initialized": false,
     "educational": true,
     "redux": true,
-    "repositoryOwner": "lectrum",
-    "repositoryName": "redux-offline-intensive"
+    "repositoryOwner": "lectrum"
   }
 }

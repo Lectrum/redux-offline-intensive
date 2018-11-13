@@ -1,4 +1,4 @@
-@import 'sanitize.css';
+@import '~sanitize.css';
 @import './palette';
 @import './animations';
 @import './globals';
